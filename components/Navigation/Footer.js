@@ -61,6 +61,7 @@ export default function Footer() {
             {[
               { href:'/constellation', label:'Constellation' },
               { href:'/intelligence', label:'AI Modules' },
+              { href:'/dmrv', label:'High-Fidelity DMRV' },
               { href:'/formula', label:'The Formula' },
               { href:'/contact', label:'Global Gateway' },
             ].map(l => (
@@ -82,8 +83,8 @@ export default function Footer() {
             <a href="mailto:theenesanvk@librae.work" style={{ color:'#D4AF37', fontSize:'0.82rem', textDecoration:'none', display:'block', marginBottom:'0.4rem' }}>
               theenesanvk@librae.work
             </a>
-            <a href="mailto:admin@librae.work" style={{ color:'#607090', fontSize:'0.82rem', textDecoration:'none' }}>
-              admin@librae.work
+            <a href="https://www.linkedin.com/in/theenesan-kunjaayappan-6bb064270/" target="_blank" rel="noopener noreferrer" style={{ color:'#4A9EFF', fontSize:'0.82rem', textDecoration:'none' }}>
+              in/theenesan-kunjaayappan
             </a>
           </div>
         </div>

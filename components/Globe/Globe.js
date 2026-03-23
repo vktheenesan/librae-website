@@ -118,6 +118,36 @@ export default function Globe({ height = '100%' }) {
     const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.3, sizeAttenuation: true });
     scene.add(new THREE.Points(starGeo, starMat));
 
+    // Orbital Rings & Satellites (Copernicus Constellation)
+    const satellites = [];
+    const orbitalRadii = [1.3, 1.45, 1.6];
+    const orbitalSpeeds = [0.2, -0.15, 0.3];
+    const orbitalColors = ['#4A9EFF', '#7B4AFF', '#D4AF37'];
+
+    orbitalRadii.forEach((radius, idx) => {
+      // The Ring Path
+      const ringG = new THREE.TorusGeometry(radius, 0.002, 16, 100);
+      const ringM = new THREE.MeshBasicMaterial({ color: orbitalColors[idx], transparent: true, opacity: 0.2 });
+      const ringMesh = new THREE.Mesh(ringG, ringM);
+      // Tilt the obits
+      ringMesh.rotation.x = Math.PI / 2 + (Math.random() - 0.5) * 0.5;
+      ringMesh.rotation.y = (Math.random() - 0.5) * 0.5;
+      scene.add(ringMesh);
+
+      // The Satellite Node
+      const sGeo = new THREE.SphereGeometry(0.02, 16, 16);
+      const sMat = new THREE.MeshBasicMaterial({ color: orbitalColors[idx] });
+      const satellite = new THREE.Mesh(sGeo, sMat);
+      // Give satellite a glowing aura
+      const auraG = new THREE.SphereGeometry(0.04, 16, 16);
+      const auraM = new THREE.MeshBasicMaterial({ color: orbitalColors[idx], transparent: true, opacity: 0.4 });
+      const aura = new THREE.Mesh(auraG, auraM);
+      satellite.add(aura);
+
+      scene.add(satellite);
+      satellites.push({ mesh: satellite, radius, speed: orbitalSpeeds[idx], angle: Math.random() * Math.PI * 2, tiltX: ringMesh.rotation.x, tiltY: ringMesh.rotation.y });
+    });
+
     // Mouse drag rotation
     let isDragging = false, prevX = 0, prevY = 0, velX = 0, velY = 0;
     const onMouseDown = e => { isDragging = true; prevX = e.clientX; prevY = e.clientY; };
@@ -157,6 +187,23 @@ export default function Globe({ height = '100%' }) {
           child.scale.set(s, s, s);
         }
       });
+
+      // Animate Satellites
+      satellites.forEach(sat => {
+        sat.angle += sat.speed * 0.02; // Update angle based on speed
+        // Basic circular orbit in XZ plane
+        let x = sat.radius * Math.cos(sat.angle);
+        let z = sat.radius * Math.sin(sat.angle);
+        let y = 0;
+        
+        // Apply tilts to match the orbital ring
+        const vec = new THREE.Vector3(x, y, z);
+        vec.applyAxisAngle(new THREE.Vector3(1, 0, 0), sat.tiltX);
+        vec.applyAxisAngle(new THREE.Vector3(0, 1, 0), sat.tiltY);
+        
+        sat.mesh.position.copy(vec);
+      });
+
       renderer.render(scene, camera);
     };
     animate();

@@ -69,22 +69,21 @@ export default function HomePage() {
         }}>
           <div>
             <div className="badge" style={{ marginBottom: '1.5rem' }}>
-              🌍 The Digital Twin of Earth's Integrity
+              🌍 The Definitive Layer for Global ESG Compliance
             </div>
             <h1 style={{
               fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', lineHeight: 1.08,
               marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800,
             }}>
-              Intelligence for{' '}<span className="gold-text">Peace.</span>
+              Intelligence for{' '}<span className="gold-text">Certainty.</span>
               <br />Infrastructure for{' '}<span className="gradient-text">Truth.</span>
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem', maxWidth: 520 }}>
-              Earth is constantly speaking — through forests, oceans, and atmosphere.
-              We translate its signals using the Copernicus Constellation and cryptographic integrity — securing the future of small farmers, sovereign nations, and global estates.
+              We transform planetary signals into cryptographically sealed, institutional-grade natural intelligence. Eliminate reputational risk and unlock premium carbon valuation with continuous Digital MRV.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }}>
-              <Link href="/constellation" className="btn-primary">🏔️ Explore the Living Map</Link>
-              <Link href="/contact" className="btn-secondary">Become EUDR Ready</Link>
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap:'wrap' }}>
+              <Link href="/dmrv" className="btn-primary">🔐 Unlock Premium DMRV</Link>
+              <Link href="/contact" className="btn-secondary">Access Sovereign Infrastructure</Link>
             </div>
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
@@ -252,22 +251,19 @@ export default function HomePage() {
               <h2 className="section-title">
                 <span className="gold-text">LENUDA</span> — The Voice of Nature
               </h2>
-              <div style={{ marginBottom: '2rem' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 2, fontStyle: 'italic' }}>
-                  "The forest does not protest when it is cleared.
-                  <br />The ocean does not testify when it is polluted.
-                  <br />The atmosphere does not warn when it is poisoned."
+              <div style={{ marginBottom: '2rem', background:'rgba(212,175,55,0.03)', padding:'1.5rem', borderLeft:'3px solid #D4AF37', borderRadius:'0 12px 12px 0' }}>
+                <p style={{ color: 'var(--text-primary)', fontSize: '1.1rem', lineHeight: 1.8, fontWeight: 500 }}>
+                  To the market, nature is an opaque risk. To Librae, it is a quantifiable, verified asset.
                 </p>
-                <p style={{ color: '#D4AF37', fontSize: '1rem', fontWeight: 700, marginTop: '1rem' }}>
-                  "Yet none of them are silent."
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.8, fontStyle: 'italic', marginTop:'1rem' }}>
+                  The forest cannot sign an audit. The ocean cannot testify in compliance hearings. The atmosphere cannot guarantee a carbon offset.
                 </p>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginTop: '1rem' }}>
-                  They speak through patterns, signals, and imbalance.
-                  We are the system that listens — and ensures they are heard.
+                  Yet, their undeniable truth determines billions in institutional capital. We are the sovereign intelligence layer that listens—translating ecological signals into indisputable, board-level evidence.
                 </p>
               </div>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                LENUDA is not a tokenization layer. It is a <strong style={{ color: '#D4AF37' }}>standardization of verified natural truth</strong>. Each asset represents a state of reality — measured, confirmed, and cryptographically sealed.
+                LENUDA is not a tokenization layer. It is a <strong style={{ color: '#D4AF37' }}>standardization of verified natural truth</strong>. Built for governments mapping sovereign wealth, and investors demanding 0% greenwashing risk.
               </p>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <a href="https://lenuda.librae.work" target="_blank" rel="noopener noreferrer" className="btn-primary">

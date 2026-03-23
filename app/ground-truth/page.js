@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import D3Network from '@/components/DataVis/D3Network';
 
 export const metadata = {
   title: 'Ground-Truth Infrastructure | Librae',
@@ -90,6 +91,22 @@ export default function GroundTruthPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────── D3.js NETWORK GRAPH ──────── */}
+      <section className="section-padding" style={{ background: '#001133' }}>
+        <div className="container">
+          <div style={{ textAlign:'center', marginBottom:'3rem' }}>
+            <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
+            <h2 className="section-title">Polygon Ingestion Pipeline</h2>
+            <p className="section-subtitle" style={{ margin:'0 auto' }}>
+              Real-time visualization of heterogeneous data sources being processed and cryptographically sealed on the Librae L2 network.
+            </p>
+          </div>
+          <div className="glass-card" style={{ padding: '0', overflow: 'hidden' }}>
+            <D3Network />
           </div>
         </div>
       </section>

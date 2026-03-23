@@ -12,8 +12,8 @@ const navLinks = [
   { href: '/aerial-intelligence', label: 'Aerial' },
   { href: '/constellation', label: 'Constellation' },
   { href: '/intelligence', label: 'Intelligence' },
+  { href: '/dmrv', label: 'DMRV Assurance' },
   { href: '/formula', label: 'Formula' },
-  { href: '/gangai', label: 'GANGAI' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -62,7 +62,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }} className="desktop-nav">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', overflowX: 'auto', msOverflowStyle: 'none', scrollbarWidth: 'none', paddingBottom: '2px' }} className="desktop-nav">
           {navLinks.map(link => (
             <Link key={link.href} href={link.href} style={{
               padding: '8px 12px',

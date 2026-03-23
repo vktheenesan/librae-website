@@ -111,6 +111,9 @@ export default function AboutPage() {
                 <Link href="/contact" className="btn-secondary">
                   Partner with Librae
                 </Link>
+                <a href="https://www.linkedin.com/in/theenesan-kunjaayappan-6bb064270/" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ borderColor: '#4A9EFF', color: '#4A9EFF' }}>
+                  🔗 Connect on LinkedIn
+                </a>
               </div>
             </div>
           </div>

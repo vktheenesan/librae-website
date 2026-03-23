@@ -8,6 +8,8 @@ export default function ContactPage() {
   const [form, setForm] = useState({ entity:'', interest:'', region:'', message:'' });
   const [hashProgress, setHashProgress] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (field, val) => {
     setForm(prev => ({ ...prev, [field]: val }));
@@ -15,9 +17,23 @@ export default function ContactPage() {
     setHashProgress((filled / 4) * 100);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      if (!res.ok) throw new Error('Transmission failed');
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMsg('Failed to send transmission. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -140,8 +156,9 @@ export default function ContactPage() {
                           borderRadius:2, transition:'width 0.4s ease' }} />
                       </div>
                     </div>
-                    <button type="submit" className="btn-primary" style={{ width:'100%', justifyContent:'center', padding:'16px', fontSize:'1rem' }}>
-                      🔐 Send Secure Transmission
+                    {errorMsg && <p style={{color:'#FF6B6B', fontSize:'0.85rem', textAlign:'center'}}>{errorMsg}</p>}
+                    <button type="submit" disabled={loading} className="btn-primary" style={{ width:'100%', justifyContent:'center', padding:'16px', fontSize:'1rem', opacity: loading ? 0.7 : 1 }}>
+                      {loading ? '🔐 Encrypting & Sending...' : '🔐 Send Secure Transmission'}
                     </button>
                   </div>
                 </form>

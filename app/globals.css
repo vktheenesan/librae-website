@@ -339,8 +339,26 @@ nav.scrolled {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .section-padding { padding: 60px 0; }
   .container { padding: 0 1.25rem; }
-  .section-title { font-size: 1.8rem; }
+  .section-title { font-size: 2.2rem; }
+
+  /* OVERRIDE INLINE GRIDS FOR MOBILE STACKING */
+  div[style*="display: grid"],
+  div[style*="display:grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Make table wrappers scrollable horizontally instead of squishing */
+  .glass-card {
+    overflow-x: auto;
+  }
+
+  /* Specific Adjustments */
+  .hero-bg {
+    padding: 100px 0 60px;
+  }
 }
+
