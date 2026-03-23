@@ -8,6 +8,7 @@ export const metadata = {
 
 const aiAgents = [
   { name:'CTO Agent', powered:'Gemini 3.1 (Vertex AI)', role:'Strategic expansion & system evolution', color:'#D4AF37', icon:'🧠', flow:['Strategy Input','Market Analysis','Roadmap Generation','Tech Scaling'] },
+  { name:'KIMI 2.5', powered:'Kimi (Moonshot AI)', role:'Deep-learning logic & localized adaptation', color:'#FF9F43', icon:'🤖', flow:['Pattern Recognition','Logic Reasoning','Refinement','Execution'] },
   { name:'System Developer', powered:'Gemini 2.5 (AI Studio)', role:'Logic optimization & execution', color:'#2E8B57', icon:'⚙️', flow:['Code Input','Algorithm Review','Optimization','Logic Output'] },
   { name:'Lead Architect', powered:'Claude Opus', role:'Structural integrity & experience design', color:'#4A9EFF', icon:'🏗️', flow:['Design Input','Structure Analysis','UX Review','Integrity Check'] },
   { name:'External Auditor', powered:'Gemini 3.1 (Vertex AI)', role:'Verification & compliance enforcement', color:'#7B4AFF', icon:'🔍', flow:['Data Input','Cross-Reference','ESG Check','Compliance Report'] },
