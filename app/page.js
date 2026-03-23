@@ -187,7 +187,7 @@ export default function HomePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   { title: 'Batch Processing', desc: '100,000+ polygons in a single pipeline run.', color: '#D4AF37' },
-                  { title: 'Individual Precision', desc: 'Every farmer's 5-rai plot receives the same scientific rigor as a 50,000-hectare estate.', color: '#2E8B57' },
+                  { title: 'Individual Precision', desc: 'Every farmer\'s 5-rai plot receives the same scientific rigor as a 50,000-hectare estate.', color: '#2E8B57' },
                   { title: 'Democratized Access', desc: '$5/hectare replaces $10,000 consultancy.', color: '#4A9EFF' },
                 ].map((s, i) => (
                   <div key={i} className="glass-card" style={{ padding: '1.25rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
