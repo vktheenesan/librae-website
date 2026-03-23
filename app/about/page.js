@@ -16,7 +16,7 @@ const aiAgents = [
 
 const timeline = [
   { year:'Foundation', title:'Understanding Systems', desc:'Education and business — learning that systems shape outcomes, not intentions.', color:'#607090', icon:'📚' },
-  { year:'Realization', title:'The Gap', desc:'AI was advancing faster than humanity\'s ability to apply it to real-world environmental crises.', color:'#D4AF37', icon:'🔄' },
+  { year:'Realization', title:'The Gap', desc:'AI was advancing faster than humanity’s ability to apply it to real-world environmental crises.', color:'#D4AF37', icon:'🔄' },
   { year:'Execution', title:'Deploying Infrastructure', desc:'Satellite + AI + blockchain deployed across millions of hectares in SE Asia.', color:'#2E8B57', icon:'🌍' },
   { year:'2026', title:'Global Recognition', desc:'Fluxx Regional Leadership in AI Winner · NIA AIMspire Nominee · Okada Manila.', color:'#D4AF37', icon:'🏆' },
   { year:'Future', title:'Global Standardization', desc:'LENUDA as the accepted standard for Digital Natural Assets across jurisdictions.', color:'#3EAB6C', icon:'🚀' },

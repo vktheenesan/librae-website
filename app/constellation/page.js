@@ -18,7 +18,7 @@ const satellites = [
     sees:'Sea and land surface temperature and ocean color.',
     edge:'Used for ocean oil spills and monitoring the thermal signature of large-scale mill operations.',
     tags:['SST','Ocean Color','Thermal','Marine'] },
-  { name:'Sentinel-5P & 5A', subtitle:'The Atmosphere\'s Voice', icon:'💨', color:'#7B4AFF',
+  { name:'Sentinel-5P & 5A', subtitle:'The Atmosphere’s Voice', icon:'💨', color:'#7B4AFF',
     sees:'Trace gases: Methane (CH₄), NO₂, and Carbon Monoxide (CO).',
     edge:'Detects "invisible polluters" — methane leaks in industrial zones, factory smoke turned into enforcement reports. 5A (2025) gives high-frequency updates.',
     tags:['CH₄','NO₂','CO','Aerosol'] },

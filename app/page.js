@@ -27,7 +27,7 @@ const trinityCards = [
     color: '#4A9EFF',
     title: 'Peace',
     subtitle: 'The Outcome of Alignment',
-    desc: 'When humans align with nature\'s laws, prosperity follows. We bridge small farmers to global ESG and EUDR standards — unlocking access, trust, and carbon value.',
+    desc: 'When humans align with nature’s laws, prosperity follows. We bridge small farmers to global ESG and EUDR standards — unlocking access, trust, and carbon value.',
     tags: ['EUDR', 'Gold Standard', 'Carbon Markets'],
   },
 ];
@@ -187,7 +187,7 @@ export default function HomePage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   { title: 'Batch Processing', desc: '100,000+ polygons in a single pipeline run.', color: '#D4AF37' },
-                  { title: 'Individual Precision', desc: 'Every farmer\'s 5-rai plot receives the same scientific rigor as a 50,000-hectare estate.', color: '#2E8B57' },
+                  { title: 'Individual Precision', desc: 'Every farmer’s 5-rai plot receives the same scientific rigor as a 50,000-hectare estate.', color: '#2E8B57' },
                   { title: 'Democratized Access', desc: '$5/hectare replaces $10,000 consultancy.', color: '#4A9EFF' },
                 ].map((s, i) => (
                   <div key={i} className="glass-card" style={{ padding: '1.25rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
@@ -282,7 +282,7 @@ export default function HomePage() {
                   { icon: '🛡️', label: 'Enforce', desc: 'Accountability where harm exists', color: '#D4AF37' },
                   { icon: '🌿', label: 'Protect', desc: 'Ecosystems where balance remains', color: '#2E8B57' },
                   { icon: '🔐', label: 'Seal', desc: 'Every truth with cryptographic proof', color: '#7B4AFF' },
-                  { icon: '🌍', label: 'Translate', desc: 'Earth\'s signals into human action', color: '#4A9EFF' },
+                  { icon: '🌍', label: 'Translate', desc: 'Earth’s signals into human action', color: '#4A9EFF' },
                 ].map((r, i) => (
                   <div key={i} className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
                     <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{r.icon}</div>

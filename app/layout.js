@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Librae Environmental Intelligence leverages the Copernicus Constellation and Blockchain to secure the future of Small Farmers and Global Estates. EUDR Ready.',
   keywords: 'EUDR, ESG, environmental intelligence, satellite data, carbon credits, LENUDA, Malaysia, Thailand',
   openGraph: {
-    title: 'Librae | The Digital Twin of Earth\'s Integrity',
+    title: 'Librae | The Digital Twin of Earth’s Integrity',
     description: 'Leveraging Copernicus Constellation and Blockchain for environmental sovereignty.',
     type: 'website',
   },
