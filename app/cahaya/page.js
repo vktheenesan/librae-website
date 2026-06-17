@@ -1,7 +1,40 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function CahayaPage() {
+  const [trialForm, setTrialForm] = useState({ name: '', email: '', entity: '' });
+  const [trialLoading, setTrialLoading] = useState(false);
+  const [trialToken, setTrialToken] = useState(null);
+  const [trialError, setTrialError] = useState(null);
+
+  const handleRequestTrial = async (e) => {
+    e.preventDefault();
+    setTrialLoading(true);
+    setTrialError(null);
+    try {
+      const res = await fetch('/api/trial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(trialForm),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to generate token');
+      }
+
+      const data = await res.json();
+      setTrialToken(data.token);
+    } catch (err) {
+      setTrialError(err.message || 'Handshake failed. License server offline.');
+    } finally {
+      setTrialLoading(false);
+    }
+  };
+
   const handleDownload = async (platform, filename) => {
     try {
       await fetch('/api/telemetry', {
@@ -76,7 +109,7 @@ export default function CahayaPage() {
       featured: true
     },
     {
-      tier: 'CAHAYA Sovereign',
+      tier: 'CAHAYA Dedicated',
       price: '$250,000 – $2M+',
       period: 'annual custom engagement',
       audience: 'Governments, defense agencies, and critical utility administrators',
@@ -85,7 +118,7 @@ export default function CahayaPage() {
         'Bespoke national regulatory methodology frameworks',
         'Dedicated, security-cleared deployment engineers',
         'Classified environment configuration',
-        'Custom local LLM reasoning alignment'
+        'Custom local reasoning alignment'
       ],
       color: '#2E8B57'
     }
@@ -98,7 +131,7 @@ export default function CahayaPage() {
         <div className="container" style={{ position:'relative', zIndex:1, paddingTop:'2rem' }}>
           <div className="badge" style={{ marginBottom:'1.5rem' }}>🛰️ Local Spatial Intelligence</div>
           <h1 className="section-title" style={{ maxWidth:800 }}>
-            CAHAYA Sovereign: <span className="gold-text">Air-Gapped</span> Spatial Analysis
+            CAHAYA: <span className="gold-text">Air-Gapped</span> Spatial Analysis
           </h1>
           <p className="section-subtitle" style={{ maxWidth:700 }}>
             Run professional-grade spatial analysis, volumetric 3D simulations, and regulatory compliance checks locally on your workstation. Zero external dependencies. Zero data egress.
@@ -135,17 +168,17 @@ export default function CahayaPage() {
               </div>
             </div>
             
-            {/* Tauri block diagram */}
+            {/* block diagram */}
             <div className="glass-card" style={{ padding: '2.5rem', background: 'rgba(0,20,60,0.4)', border: '1px solid rgba(212,175,55,0.15)' }}>
               <h3 style={{ color: '#D4AF37', marginBottom: '1.5rem', fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Local Sandboxed Execution</h3>
               <div style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#A0B0CC', lineHeight: 1.8 }}>
                 <div style={{ border: '1px solid #607090', padding: '15px', borderRadius: '8px', marginBottom: '10px' }}>
-                  <div style={{ color: '#4A9EFF', fontWeight: 'bold' }}>Tauri Chromium Desktop Frame (Frontend)</div>
+                  <div style={{ color: '#4A9EFF', fontWeight: 'bold' }}>Secure Standalone Desktop Client (Frontend)</div>
                   <div style={{ color: '#8090A0', fontSize: '0.75rem' }}>Displays local-loopback user interface viewport</div>
                 </div>
                 <div style={{ textAlign: 'center', margin: '5px 0' }}>⇅ Local IPC Handshake (Secure Pipe)</div>
                 <div style={{ border: '1px solid #607090', padding: '15px', borderRadius: '8px', marginBottom: '10px' }}>
-                  <div style={{ color: '#2E8B57', fontWeight: 'bold' }}>FastAPI Backend Daemon (Localhost Bound)</div>
+                  <div style={{ color: '#2E8B57', fontWeight: 'bold' }}>Background Processing Daemon (Localhost Bound)</div>
                   <div style={{ color: '#8090A0', fontSize: '0.75rem' }}>Binds strictly to 127.0.0.1:8000 — rejects remote traffic</div>
                 </div>
                 <div style={{ textAlign: 'center', margin: '5px 0' }}>⇅ Hardware Lock Calibration</div>
@@ -185,7 +218,7 @@ export default function CahayaPage() {
         </div>
       </section>
 
-      {/* Unreal Engine 5 integration */}
+      {/* 3D Visual Simulation */}
       <section className="section-padding grid-bg" style={{ background: '#000A1A' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '5rem', alignItems: 'center' }}>
@@ -201,14 +234,14 @@ export default function CahayaPage() {
               
               <div style={{ height: '220px', borderRadius: '8px', background: 'radial-gradient(circle at 50% 50%, #052a1a, #000B1A)', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', position: 'relative' }}>
                 <div style={{ position: 'absolute', inset: 0, opacity: 0.15, background: 'linear-gradient(rgba(18, 140, 70, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 140, 70, 0.1) 1px, transparent 1px)', backgroundSize: '15px 15px' }} />
-                <span style={{ fontSize: '2rem', marginBottom: '10px' }}>🎮</span>
-                <span style={{ fontSize: '0.9rem', color: '#A0B0CC', fontWeight: 'bold' }}>Unreal Engine 5 Render Engine</span>
-                <span style={{ fontSize: '0.75rem', color: '#607090', marginTop: '4px' }}>Pixel Streaming Stream: 30 FPS stable</span>
+                <span style={{ fontSize: '2rem', marginBottom: '10px' }}>🌐</span>
+                <span style={{ fontSize: '0.9rem', color: '#A0B0CC', fontWeight: 'bold' }}>Librae Core 3D Rendering Engine</span>
+                <span style={{ fontSize: '0.75rem', color: '#607090', marginTop: '4px' }}>Visual Streaming Stream: 30 FPS stable</span>
               </div>
               
               <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem' }}>
-                <span style={{ padding: '4px 10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', fontSize: '0.75rem', color: '#A0B0CC' }}>FBX Terrain mesh export</span>
-                <span style={{ padding: '4px 10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', fontSize: '0.75rem', color: '#A0B0CC' }}>ArcGIS Maps SDK binding</span>
+                <span style={{ padding: '4px 10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', fontSize: '0.75rem', color: '#A0B0CC' }}>Standard 3D terrain mesh export</span>
+                <span style={{ padding: '4px 10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '4px', fontSize: '0.75rem', color: '#A0B0CC' }}>Standard geographic map projection bindings</span>
               </div>
             </div>
             
@@ -216,10 +249,10 @@ export default function CahayaPage() {
               <div className="accent-line" />
               <h2 className="section-title">Immersive 3D Simulation Lab</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                CAHAYA bridges geographic GIS calculations with Unreal Engine 5's cinematic physics. Export terrain geometries and point clouds directly as standardized FBX or GLTF meshes.
+                CAHAYA bridges geographic GIS calculations with a high-fidelity 3D physics rendering visual engine. Export terrain geometries and point clouds directly as standardized 3D meshes.
               </p>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                By loading coordinate data via the *ArcGIS Maps SDK for Unreal Engine*, spatial projection alignments remain mathematically exact. High-fidelity rendering is processed via local GPU servers and pixel-streamed back to your browser frame.
+                By loading coordinate data via the standard map projection API, spatial projection alignments remain mathematically exact. High-fidelity rendering is processed via local GPU configurations and visual-streamed directly back to your browser frame.
               </p>
             </div>
           </div>
@@ -304,7 +337,7 @@ export default function CahayaPage() {
             Download Standalone Workstation Installers
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 600, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-            Native desktop packages wrapped in a secure Tauri framework with an embedded Python runtime. Requires license key activation upon launch.
+            Native desktop packages wrapped in a secure standalone desktop client shell with an embedded local runtime. Requires license key activation upon launch.
           </p>
           
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -336,6 +369,68 @@ export default function CahayaPage() {
           <p style={{ color: '#607090', fontSize: '0.75rem', marginTop: '1.5rem', fontFamily: 'Space Mono, monospace' }}>
             All packages are Authenticode and Apple Notary signed. Local listening bound strictly to localhost.
           </p>
+        </div>
+      </section>
+
+      {/* 30-Day Evaluation License Generation */}
+      <section style={{ padding: '80px 0', background: '#000A1A', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+        <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <div className="glass-card" style={{ padding: '2.5rem', border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.01)' }}>
+            <h3 style={{ color: '#D4AF37', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800, textAlign: 'center' }}>
+              Request 30-Day Evaluation License
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '2rem', textAlign: 'center', lineHeight: 1.6 }}>
+              Generate a temporary hardware-locked token to evaluate CAHAYA locally. Valid for exactly 30 days.
+            </p>
+
+            {trialToken ? (
+              <div style={{ textAlign: 'center', padding: '1.5rem', background: 'rgba(212,175,55,0.05)', border: '1px dashed #D4AF37', borderRadius: '8px' }}>
+                <span style={{ color: '#607090', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
+                  Your Evaluation License Token
+                </span>
+                <code style={{ fontSize: '1.2rem', color: '#FFF', fontWeight: 'bold', letterSpacing: '2px', display: 'block', margin: '10px 0', fontFamily: 'Space Mono, monospace', background: 'rgba(0,0,0,0.4)', padding: '10px', borderRadius: '4px' }}>
+                  {trialToken}
+                </code>
+                <button 
+                  onClick={() => { navigator.clipboard.writeText(trialToken); alert('Token copied to clipboard!'); }}
+                  className="btn-secondary" 
+                  style={{ padding: '6px 16px', fontSize: '0.8rem', marginTop: '10px' }}
+                >
+                  📋 Copy Token
+                </button>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '1rem', lineHeight: 1.5 }}>
+                  Copy this token and paste it into the activation window when launching the CAHAYA desktop client.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleRequestTrial}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                  <div>
+                    <label style={{ color: '#607090', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '6px' }}>Full Name</label>
+                    <input type="text" required value={trialForm.name} onChange={e => setTrialForm(prev => ({ ...prev, name: e.target.value }))}
+                      placeholder="Your Name"
+                      style={{ width: '100%', padding: '12px 14px', background: 'rgba(0,20,60,0.6)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: 8, color: 'var(--text-primary)', fontSize: '0.85rem', outline: 'none' }} />
+                  </div>
+                  <div>
+                    <label style={{ color: '#607090', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '6px' }}>Corporate/Agency Email</label>
+                    <input type="email" required value={trialForm.email} onChange={e => setTrialForm(prev => ({ ...prev, email: e.target.value }))}
+                      placeholder="name@organization.com"
+                      style={{ width: '100%', padding: '12px 14px', background: 'rgba(0,20,60,0.6)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: 8, color: 'var(--text-primary)', fontSize: '0.85rem', outline: 'none' }} />
+                  </div>
+                  <div>
+                    <label style={{ color: '#607090', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '6px' }}>Entity Name</label>
+                    <input type="text" required value={trialForm.entity} onChange={e => setTrialForm(prev => ({ ...prev, entity: e.target.value }))}
+                      placeholder="Company or Government Department"
+                      style={{ width: '100%', padding: '12px 14px', background: 'rgba(0,20,60,0.6)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: 8, color: 'var(--text-primary)', fontSize: '0.85rem', outline: 'none' }} />
+                  </div>
+                  {trialError && <p style={{ color: '#FF6B6B', fontSize: '0.8rem', textAlign: 'center' }}>{trialError}</p>}
+                  <button type="submit" disabled={trialLoading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '12px', fontSize: '0.9rem', opacity: trialLoading ? 0.7 : 1 }}>
+                    {trialLoading ? 'Generating Token...' : '⚡ Generate 30-Day License'}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </section>
     </>

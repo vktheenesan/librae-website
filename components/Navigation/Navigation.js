@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/cahaya', label: 'CAHAYA Sovereign' },
+  { href: '/cahaya', label: 'CAHAYA' },
   { href: '/lenuda', label: 'LENUDA' },
   { href: '/orbit-and-aerial', label: 'Orbit & Aerial' },
   { href: '/truth-and-seal', label: 'Truth & Seal' },

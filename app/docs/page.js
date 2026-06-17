@@ -29,7 +29,7 @@ export default function DocsPage() {
               1. Hardware Specifications
             </h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              CAHAYA Sovereign executes high-fidelity point-cloud modeling and local LLM reasoning entirely on client hardware. The host machine must satisfy the following minimum and recommended requirements:
+              CAHAYA executes high-fidelity point-cloud modeling and local LLM reasoning entirely on client hardware. The host machine must satisfy the following minimum and recommended requirements:
             </p>
             
             <div className="glass-card" style={{ padding: '2rem', background: 'rgba(255,255,255,0.01)' }}>
@@ -47,7 +47,7 @@ export default function DocsPage() {
                   <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.8 }}>
                     <div style={{ marginBottom: '8px' }}>🚀 <strong>Cahaya Edge (7B model):</strong> 1x NVIDIA RTX 4060 (8GB VRAM) or Apple M-series (16GB Unified).</div>
                     <div style={{ marginBottom: '8px' }}>🚀 <strong>Cahaya Standard (32B model):</strong> 1x NVIDIA RTX 4090 / RTX A6000 (24GB+ VRAM).</div>
-                    <div>🚀 <strong>Cahaya Sovereign (72B model):</strong> 2x NVIDIA H100 / A100 (144GB+ total VRAM).</div>
+                    <div>🚀 <strong>Cahaya Enterprise (72B model):</strong> 2x NVIDIA H100 / A100 (144GB+ total VRAM).</div>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function DocsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
                 { step: '01', title: 'Extract Standalone Archive', body: 'Extract the compiled package to `/opt/lenuda/` on Unix-like operating systems or `C:\\Program Files\\Lenuda\\` on Windows workstations.' },
-                { step: '02', title: 'Run Virtual Environment Initialization', body: 'Execute `chmod +x install.sh && ./install.sh` (Unix) or run `install.bat` as Administrator (Windows). This configures local virtual environments and seeds embedded FastAPI daemons.' },
+                { step: '02', title: 'Run Virtual Environment Initialization', body: 'Execute `chmod +x install.sh && ./install.sh` (Unix) or run `install.bat` as Administrator (Windows). This configures local virtual environments and seeds embedded local background API engines.' },,
                 { step: '03', title: 'Seed Offline Model Weights', body: 'Download and place the designated model weights directly into the `models/` directory of the application root.' },
                 { step: '04', title: 'Execute Hardware Handshake', body: 'Bind the workstation license key by running: `python3 lenuda_cli.py --status`. Record the unique SHA-256 System Hardware Fingerprint and transmit it to Librae AI Labs to receive your annual activation token.' }
               ].map((inst, i) => (
@@ -108,14 +108,14 @@ export default function DocsPage() {
             </div>
           </div>
 
-          {/* Section 4: UE5 Pixel Streaming */}
+          {/* Section 4: 3D Simulation Rendering */}
           <div>
             <div className="accent-line" style={{ width: '40px', height: '3px', background: '#4A9EFF', marginBottom: '1.5rem' }} />
             <h2 style={{ fontSize: '1.8rem', color: '#E0E2E5', marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
-              4. Unreal Engine 5 Pixel Streaming Integration
+              4. High-Fidelity 3D Simulation Rendering
             </h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              Immersive point-cloud and physics simulations are executed on the host's GPU using Unreal Engine 5. By running a headless pixel streaming daemon, CAHAYA streams a high-framerate rendering frame (30 FPS) directly to the browser container over local WebSockets. WGS 84 coordinates are preserved natively via the ArcGIS Maps SDK.
+              Immersive point-cloud and physics simulations are executed on the host's GPU using the Librae Core 3D Rendering Engine. By running a secure headless rendering system, CAHAYA streams a high-framerate rendering frame (30 FPS) directly to the local rendering container over secure local WebSockets. WGS 84 spatial coordinates are preserved natively via deep spatial mappings.
             </p>
           </div>
 

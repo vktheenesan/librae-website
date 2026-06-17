@@ -35,17 +35,89 @@ function AnimatedCounter({ target, suffix, duration = 2000 }) {
 }
 
 export default function HomePage() {
+  const [activeVertical, setActiveVertical] = useState(null);
+
   const industries = [
-    { icon: '🌾', title: 'Agriculture and ESG', desc: 'RSPO/MSPO boundary auditing and EUDR tracking.' },
-    { icon: '⛏️', title: 'Mining and Resource Management', desc: 'JORC 2012 / NI 43-101 volumetric auditing.' },
-    { icon: '🏗️', title: 'Infrastructure and Construction', desc: 'Deformation and encroachment telemetry.' },
-    { icon: '🏙️', title: 'Urban Planning', desc: 'FAR density mapping and solar shadow paths.' },
-    { icon: '🌊', title: 'Environmental Intelligence', desc: 'EIA automation and sediment runoff trackers.' },
-    { icon: '🌳', title: 'Forestry and Carbon Projects', desc: 'Verra VCS canopy height and volume metrics.' },
-    { icon: '🚢', title: 'Maritime and Coastal Operations', desc: 'S-57 navigational contours and wave erosion.' },
-    { icon: '⚡', title: 'Energy and Renewables', desc: 'GHI solar yield and Weibull wind vector maps.' },
-    { icon: '🚨', title: 'Emergency Response', desc: 'Rothermel wildfire propagation paths and flood routing.' },
-    { icon: '🛡️', title: 'Defense and Security', desc: 'SCIF-ready viewsheds and terrain threat tracking.' }
+    {
+      icon: '🌾',
+      title: 'Agriculture and ESG',
+      desc: 'RSPO/MSPO boundary auditing and EUDR tracking.',
+      about: 'EU Deforestation Regulation (EUDR) boundary auditing, RSPO/MSPO certification mapping, and supply-chain logging verification.',
+      benefit: 'Automates zero-deforestation compliance reporting, reducing manual field inspections by 90% while providing audit-ready legal evidence.',
+      method: 'Combine daily Sentinel/Landsat satellite observations with local GPS parcel boundaries in the LENUDA ledger, issuing cryptographic compliance certificates.'
+    },
+    {
+      icon: '⛏️',
+      title: 'Mining and Resource Management',
+      desc: 'JORC 2012 / NI 43-101 volumetric auditing.',
+      about: 'JORC Code 2012 and NI 43-101 compliant volumetric stockpile auditing, open-pit quarry progression modeling, and safety buffer encroachment tracing.',
+      benefit: 'Eliminates surveyor hazard and increases survey frequency from quarterly to weekly with millimeter-level drone photogrammetry.',
+      method: 'Process high-resolution drone-acquired LiDAR point-clouds through the CAHAYA 3D engine to calculate cut-and-fill volume sheets in minutes.'
+    },
+    {
+      icon: '🏗️',
+      title: 'Infrastructure and Construction',
+      desc: 'Deformation and encroachment telemetry.',
+      about: 'Pipeline deformation monitoring, utility easement encroachment telemetry, and structural settling analysis for high-value civil engineering.',
+      benefit: 'Detects structural movement or encroachment hazards before failure events occur, protecting critical transport and energy corridors.',
+      method: 'Run continuous Synthetic Aperture Radar (SAR) interferometry (InSAR) on orbiting constellation imagery to map sub-centimeter land displacement.'
+    },
+    {
+      icon: '🏙️',
+      title: 'Urban Planning',
+      desc: 'FAR density mapping and solar shadow paths.',
+      about: 'Floor Area Ratio (FAR) density modeling, zoning height compliance, building shadow cast paths, and local solar insolation planning.',
+      benefit: 'Accelerates public zoning reviews, optimizes solar capture configurations, and minimizes microclimatic heat islands.',
+      method: 'Import municipal GIS shapes into the CAHAYA local simulation sandbox to run real-time solar vector rays and height checks.'
+    },
+    {
+      icon: '🌊',
+      title: 'Environmental Intelligence',
+      desc: 'EIA automation and sediment runoff trackers.',
+      about: 'Environmental Impact Assessments (EIAs), soil erosion modeling, pollutant dispersion analysis, and sediment runoff tracking.',
+      benefit: 'Satisfies environmental ministry permitting requirements faster, proving conservation adherence with verifiable scientific models.',
+      method: 'Simulate seasonal rainfall and runoff vectors across 3D Digital Elevation Models (DEMs) inside CAHAYA\'s simulation core.'
+    },
+    {
+      icon: '🌳',
+      title: 'Forestry and Carbon Projects',
+      desc: 'Verra VCS canopy height and volume metrics.',
+      about: 'Canopy Height Models (CHM) from LiDAR, biomass volume estimations, and Verra VCS/Gold Standard compliance logs.',
+      benefit: 'Locks in carbon credit valuation with transparent, verifiable data, eliminating audit rejection risks from verification bodies.',
+      method: 'Extract individual tree metrics and carbon volume curves from airborne LiDAR scans, anchored in the LENUDA ledger.'
+    },
+    {
+      icon: '🚢',
+      title: 'Maritime and Coastal Operations',
+      desc: 'S-57 navigational contours and wave erosion.',
+      about: 'S-57 contour chart verification, bathymetric shoreline drift modeling, and harbor engineering feasibility assessments.',
+      benefit: 'Ensures safe vessel draft clearance, maps coastal erosion vectors, and identifies optimal locations for sea walls.',
+      method: 'Overlay echo-sounder datasets onto coastal elevation models to simulate wave energy impact paths.'
+    },
+    {
+      icon: '⚡',
+      title: 'Energy and Renewables',
+      desc: 'GHI solar yield and wind vector maps.',
+      about: 'Global Horizontal Irradiance (GHI) mapping for solar fields, wind turbine site optimization, and micro-grid layout modeling.',
+      benefit: 'Maximizes energy output per acre while minimizing wind turbine wake losses and solar shadow obstructions.',
+      method: 'Run localized Weibull wind distribution and shading simulation sweeps inside CAHAYA across terrain slopes.'
+    },
+    {
+      icon: '🚨',
+      title: 'Emergency Response',
+      desc: 'Active flood inundation routing and wildfire paths.',
+      about: 'Active flood inundation routing, Rothermel wildfire propagation vectors, and optimal evacuation route simulations.',
+      benefit: 'Provides incident commanders with precise, life-saving egress coordinates and predictive hazard maps in real time.',
+      method: 'Input real-time telemetry (wind speed, soil moisture) into CAHAYA\'s local terrain model to project hazard paths.'
+    },
+    {
+      icon: '🛡️',
+      title: 'Defense and Security',
+      desc: 'SCIF-ready viewsheds and terrain threat tracking.',
+      about: 'SCIF-ready local viewsheds, route line-of-sight hazard checks, and secure tactical terrain analysis.',
+      benefit: 'Secures tactical operations with 100% offline, zero-network-leakage spatial intelligence.',
+      method: 'Run multi-point visibility sweeps across classified high-resolution elevation maps inside a local secure node.'
+    }
   ];
 
   return (
@@ -75,7 +147,7 @@ export default function HomePage() {
               Librae AI Labs is an elite technology company that designs and engineers sovereign intelligence infrastructure for organizations operating in high-consequence physical and digital environments.
             </p>
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap:'wrap' }}>
-              <Link href="/cahaya" className="btn-primary">🛰️ CAHAYA Sovereign</Link>
+              <Link href="/cahaya" className="btn-primary">🛰️ CAHAYA</Link>
               <Link href="/lenuda" className="btn-secondary">🌿 LENUDA Platform</Link>
             </div>
             {/* Stats */}
@@ -166,12 +238,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* CAHAYA Sovereign */}
+            {/* CAHAYA */}
             <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#D4AF37,transparent)' }} />
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🛰️</div>
-                <h3 style={{ color: '#D4AF37', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>CAHAYA Sovereign</h3>
+                <h3 style={{ color: '#D4AF37', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>CAHAYA</h3>
                 <p style={{ color: '#607090', fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                   Local-First, Air-Gapped Simulation Framework
                 </p>
@@ -194,20 +266,88 @@ export default function HomePage() {
             <div className="accent-line" style={{ margin: '0 auto 1.5rem' }} />
             <h2 className="section-title">High-Consequence Verticals We Serve</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>
-              Our unified infrastructure platforms natively support organizations operating across ten major sectors.
+              Our unified infrastructure platforms natively support organizations operating across ten major sectors. Click a sector to view operational details and access workflows.
             </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
-            {industries.map((ind, i) => (
-              <div key={i} className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-                <div style={{ fontSize: '2rem' }}>{ind.icon}</div>
-                <div>
-                  <h4 style={{ color: '#E0E2E5', fontSize: '1rem', fontWeight: 700, margin: '0 0 4px' }}>{ind.title}</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>{ind.desc}</p>
+            {industries.map((ind, i) => {
+              const isActive = activeVertical === i;
+              return (
+                <div 
+                  key={i} 
+                  className="glass-card" 
+                  onClick={() => setActiveVertical(isActive ? null : i)}
+                  style={{ 
+                    padding: '1.75rem', 
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    gap: '1.25rem', 
+                    cursor: 'pointer',
+                    borderColor: isActive ? 'var(--gold)' : 'var(--border-subtle)',
+                    background: isActive ? 'rgba(0, 35, 90, 0.4)' : 'var(--bg-card)',
+                    boxShadow: isActive ? '0 10px 30px rgba(212,175,55,0.15)' : 'none',
+                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                >
+                  <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+                    <div style={{ fontSize: '2.2rem', filter: isActive ? 'drop-shadow(0 0 8px var(--gold))' : 'none' }}>{ind.icon}</div>
+                    <div style={{ flex: 1 }}>
+                      <h4 style={{ color: isActive ? 'var(--gold)' : '#E0E2E5', fontSize: '1.05rem', fontWeight: 700, margin: '0 0 4px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span>{ind.title}</span>
+                        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{isActive ? '▲' : '▼'}</span>
+                      </h4>
+                      <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>{ind.desc}</p>
+                    </div>
+                  </div>
+                  
+                  {isActive && (
+                    <div 
+                      onClick={(e) => e.stopPropagation()} 
+                      style={{ 
+                        marginTop: '1rem', 
+                        paddingTop: '1.25rem', 
+                        borderTop: '1px solid rgba(255,255,255,0.06)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1rem',
+                      }}
+                    >
+                      <div>
+                        <strong style={{ color: 'var(--gold)', display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Operational Scope</strong>
+                        <p style={{ color: 'var(--text-primary)', fontSize: '0.85rem', margin: 0, lineHeight: 1.6 }}>{ind.about}</p>
+                      </div>
+                      <div>
+                        <strong style={{ color: '#2E8B57', display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>System Benefits</strong>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: 0, lineHeight: 1.6 }}>{ind.benefit}</p>
+                      </div>
+                      <div>
+                        <strong style={{ color: '#4A9EFF', display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Typical Methodology</strong>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: 0, lineHeight: 1.6 }}>{ind.method}</p>
+                      </div>
+                      <div style={{ marginTop: '0.5rem' }}>
+                        <a 
+                          href="https://lenuda.librae.work/Login" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn-primary" 
+                          style={{ 
+                            fontSize: '0.8rem', 
+                            padding: '8px 20px', 
+                            display: 'inline-flex', 
+                            alignItems: 'center', 
+                            gap: '6px',
+                            background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))'
+                          }}
+                        >
+                          Access LENUDA Portal <span>↗</span>
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
