@@ -19,17 +19,30 @@ export default function LenudaPage() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero hero-bg grid-bg">
+      <section className="page-hero hero-bg grid-bg terrain-grid" style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Ambient orbs */}
+        <div className="glow-orb glow-orb-emerald" style={{ width: '500px', height: '500px', top: '-80px', left: '-100px' }} />
+        <div className="glow-orb glow-orb-gold" style={{ width: '300px', height: '300px', bottom: '-60px', right: '10%', opacity: 0.12 }} />
+
         <div className="container" style={{ position:'relative', zIndex:1, paddingTop:'2rem' }}>
-          <div className="badge" style={{ marginBottom:'1.5rem', background: 'rgba(46,139,87,0.15)', borderColor: 'rgba(46,139,87,0.3)', color: '#2E8B57' }}>
-            🌿 Cloud Environmental Ledger
+          <div className="badge" style={{ marginBottom:'1.25rem', background: 'rgba(46,139,87,0.12)', borderColor: 'rgba(46,139,87,0.3)', color: '#3EAB6C' }}>
+            🌱 Environmental Intelligence Platform
           </div>
-          <h1 className="section-title" style={{ maxWidth:800 }}>
-            LENUDA: The Sovereign <span className="gradient-text">ESG Twin & Ledger</span>
+          <h1 className="section-title" style={{ maxWidth: 820, animation: 'fadeInUp 0.7s ease both' }}>
+            LENUDA: <span className="gradient-text">Librae Environment Nature</span>
+            <br />Unified Digital Asset
           </h1>
-          <p className="section-subtitle" style={{ maxWidth:700 }}>
-            A cloud-native environmental mapping platform and cryptographic ledger. Automate Sentinel observations, satisfy EUDR and ESG standards, and lock in premium carbon asset valuation.
+          <p className="section-subtitle" style={{ maxWidth: 660, marginTop: '1rem', animation: 'fadeInUp 0.7s 0.15s ease both' }}>
+            A cloud-native environmental intelligence ledger. Automate satellite observations, satisfy EUDR and RSPO standards, and lock in premium carbon asset valuation — all cryptographically sealed on-chain.
           </p>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap', animation: 'fadeInUp 0.7s 0.25s ease both' }}>
+            <a href="https://lenuda.librae.work/Login" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ background: 'linear-gradient(135deg,#2E8B57,#1E5C3A)' }}>
+              🔗 Login to LENUDA →
+            </a>
+            <a href="/contact" className="btn-secondary" style={{ borderColor: 'rgba(46,139,87,0.4)', color: '#3EAB6C' }}>
+              Request Access
+            </a>
+          </div>
         </div>
       </section>
 
@@ -171,21 +184,46 @@ export default function LenudaPage() {
       </section>
 
       {/* Platform redirect */}
-      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg,#000A1A,#001A33)', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: 'var(--text-primary)', marginBottom: '1.25rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
-            Access the Live Environmental Ledger
+      <section style={{ padding: '90px 0', background: 'linear-gradient(180deg,#000A1A,#001A33)', borderTop: '1px solid rgba(46,139,87,0.1)', position: 'relative', overflow: 'hidden' }}>
+        {/* Emerald ambient glow */}
+        <div className="glow-orb glow-orb-emerald" style={{ width: '500px', height: '500px', top: '-100px', left: '50%', transform: 'translateX(-50%)', opacity: 0.08 }} />
+
+        <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+          <div className="badge" style={{ marginBottom: '1.5rem', background: 'rgba(46,139,87,0.1)', borderColor: 'rgba(46,139,87,0.25)', color: '#3EAB6C', margin: '0 auto 1.5rem' }}>
+            🔍 Live Environmental Ledger
+          </div>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: 'var(--text-primary)', marginBottom: '1.25rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
+            Access the LENUDA Platform
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 600, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-            Review national ecological asset distributions, check on-chain Merkle audit logs, and coordinate workspaces.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 580, margin: '0 auto 2.5rem', lineHeight: 1.8 }}>
+            Review national ecological asset distributions, check on-chain Merkle audit logs, and coordinate environmental workspaces in real-time.
           </p>
-          
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href="https://lenuda.librae.work" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-flex', background: '#2E8B57', borderColor: '#2E8B57' }}>
-              🔗 Launch LENUDA Platform
+
+          {/* Dual CTA */}
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
+            <a href="https://lenuda.librae.work/Login" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ background: 'linear-gradient(135deg,#2E8B57,#1E6B42)', fontSize: '1rem', padding: '15px 36px' }}>
+              🔗 Login · lenuda.librae.work
+            </a>
+            <a href="/contact" className="btn-secondary" style={{ borderColor: 'rgba(46,139,87,0.4)', color: '#3EAB6C' }}>
+              🧠 Talk to BAYU
             </a>
           </div>
-          <p style={{ color: '#607090', fontSize: '0.75rem', marginTop: '1.5rem', fontFamily: 'Space Mono, monospace' }}>
+
+          {/* Social proof row */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap' }}>
+            {[
+              { value: '12+', label: 'Active Projects' },
+              { value: '3M ha', label: 'Monitored Area' },
+              { value: 'SHA-256', label: 'Sealed Data' },
+            ].map((item, i) => (
+              <div key={i} style={{ textAlign: 'center' }}>
+                <div style={{ fontFamily: 'Space Mono, monospace', color: '#2E8B57', fontSize: '1.3rem', fontWeight: 700 }}>{item.value}</div>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ color: '#607090', fontSize: '0.72rem', marginTop: '2rem', fontFamily: 'Space Mono, monospace' }}>
             lenuda.librae.work · Secured via Polygon L2 cryptographic attestations
           </p>
         </div>

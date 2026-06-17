@@ -127,43 +127,68 @@ export default function HomePage() {
         minHeight: '100vh', display: 'flex', alignItems: 'center',
         position: 'relative', overflow: 'hidden', paddingTop: '72px',
       }}>
-        <div className="grid-bg" style={{ position:'absolute', inset:0, pointerEvents:'none' }} />
+        {/* Animated terrain grid */}
+        <div className="grid-bg terrain-grid" style={{ position:'absolute', inset:0, pointerEvents:'none' }} />
+
+        {/* Ambient glow orbs — 3D world depth layering */}
+        <div className="glow-orb glow-orb-gold" style={{ width: '600px', height: '600px', top: '-100px', left: '-150px', zIndex: 0 }} />
+        <div className="glow-orb glow-orb-emerald" style={{ width: '400px', height: '400px', bottom: '50px', right: '-80px', zIndex: 0 }} />
+        <div className="glow-orb glow-orb-blue" style={{ width: '300px', height: '300px', top: '30%', right: '30%', zIndex: 0 }} />
+
         <div className="container" style={{
           display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '3rem',
           alignItems: 'center', position: 'relative', zIndex: 1,
         }}>
           <div>
-            <div className="badge" style={{ marginBottom: '1.5rem' }}>
-              🛡️ Sovereign Intelligence Infrastructure
+            {/* Slogan + badge row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+              <div className="badge" style={{ animation: 'fadeInDown 0.6s ease forwards' }}>
+                🌍 Voice of Nature
+              </div>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', letterSpacing: '1.5px', textTransform: 'uppercase', fontFamily: 'Space Mono, monospace' }}>
+                Sovereign Intelligence Infrastructure
+              </span>
             </div>
+
             <h1 style={{
               fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', lineHeight: 1.08,
               marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800,
+              animation: 'fadeInUp 0.7s 0.1s ease both',
             }}>
-              Sovereign Intelligence for the{' '}<span className="gold-text">Physical</span>
+              Intelligence for the{' '}<span className="shimmer-text">Physical</span>
               <br />and{' '}<span className="gradient-text">Digital World.</span>
             </h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem', maxWidth: 520 }}>
-              Librae AI Labs is an elite technology company that designs and engineers sovereign intelligence infrastructure for organizations operating in high-consequence physical and digital environments.
+
+            <p style={{
+              color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.85,
+              marginBottom: '2rem', maxWidth: 520,
+              animation: 'fadeInUp 0.7s 0.2s ease both',
+            }}>
+              Librae AI Labs engineers sovereign intelligence infrastructure — translating the physical world into verifiable, actionable 3D digital reality. Built for governments, resource operators, and high-consequence environments.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap:'wrap' }}>
-              <Link href="/cahaya" className="btn-primary">🛰️ CAHAYA</Link>
+
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap:'wrap', animation: 'fadeInUp 0.7s 0.3s ease both' }}>
+              <Link href="/cahaya" className="btn-primary">🛰️ Explore CAHAYA</Link>
               <Link href="/lenuda" className="btn-secondary">🌿 LENUDA Platform</Link>
             </div>
-            {/* Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
+
+            {/* Terminal stat boxes */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1rem', animation: 'fadeInUp 0.7s 0.4s ease both' }}>
               {[
-                { value: 3, suffix:'M+', label: 'Hectares Monitored' },
-                { value: 0, suffix:' ms', label: 'Local Compute Latency' },
-                { value: 0, suffix:'%', label: 'Cloud Leakage Risk' },
+                { value: 3, suffix:'M+', label: 'Hectares Monitored', color: '#D4AF37' },
+                { value: 0, suffix:' ms', label: 'Cloud Latency', color: '#2E8B57' },
+                { value: 0, suffix:'%', label: 'Egress Risk', color: '#4A9EFF' },
               ].map((stat, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div className="stat-number"><AnimatedCounter target={stat.value} suffix={stat.suffix} /></div>
-                  <div className="stat-label">{stat.label}</div>
+                <div key={i} className="stat-terminal" style={{ textAlign: 'center', borderTopColor: stat.color }}>
+                  <div className="stat-number" style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', color: stat.color }}>
+                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="stat-label" style={{ fontSize: '0.7rem', marginTop: '0.4rem' }}>{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
+
           {/* Globe */}
           <div style={{ height: '600px', position: 'relative' }}>
             <Globe />
@@ -172,21 +197,43 @@ export default function HomePage() {
       </section>
 
       {/* ──────── CORE CREED ──────── */}
-      <section style={{ padding: '80px 0', background: 'linear-gradient(180deg,#000A1A,#001133)', position: 'relative' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
+      <section style={{ padding: '90px 0', background: 'linear-gradient(180deg,#000A1A,#001133)', position: 'relative', overflow: 'hidden' }}>
+        {/* Decorative large quote mark */}
+        <div style={{
+          position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)',
+          fontSize: '18rem', fontFamily: 'Outfit, sans-serif', fontWeight: 900,
+          color: '#D4AF37', opacity: 0.025, lineHeight: 1, pointerEvents: 'none',
+          userSelect: 'none', zIndex: 0,
+        }}>"</div>
+
+        <div className="container" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div className="accent-line" style={{ margin: '0 auto 2rem' }} />
-          <h4 style={{ color: '#D4AF37', fontFamily: 'Space Mono, monospace', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1rem' }}>
-            Our Foundational Creed
-          </h4>
+          <div style={{ color: 'var(--text-muted)', fontFamily: 'Space Mono, monospace', fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '3px', marginBottom: '1.5rem' }}>
+            Foundational Creed · Librae AI Labs
+          </div>
           <p style={{
-            color: 'var(--text-primary)', fontSize: '1.4rem', lineHeight: 1.8, fontFamily: 'Outfit, sans-serif', fontWeight: 600, letterSpacing: '0.3px',
-            marginBottom: '2rem'
+            color: 'var(--text-primary)', fontSize: 'clamp(1.15rem, 2.5vw, 1.5rem)',
+            lineHeight: 1.85, fontFamily: 'Outfit, sans-serif', fontWeight: 600,
+            letterSpacing: '0.2px', marginBottom: '2rem',
           }}>
-            "Better decisions emerge when information becomes understandable, traceable, and actionable."
+            "Better decisions emerge when information becomes{' '}
+            <span className="gold-text">understandable</span>, traceable,
+            and{' '}<span style={{ color: '#2E8B57' }}>actionable</span>."
           </p>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 2, maxWidth: 650, margin: '0 auto' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 2, maxWidth: 620, margin: '0 auto 2rem' }}>
             We believe technology should augment human judgment, not replace it. Physical systems, environmental conditions, and critical infrastructure involve high-consequence decisions where accuracy, traceability, and security matter deeply.
           </p>
+          {/* Slogan stamp */}
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            padding: '6px 18px', borderRadius: '100px',
+            background: 'rgba(46,139,87,0.08)',
+            border: '1px solid rgba(46,139,87,0.2)',
+            color: '#3EAB6C', fontSize: '0.75rem',
+            fontFamily: 'Space Mono, monospace', letterSpacing: '1px',
+          }}>
+            🌱 LENUDA · Librae Environment Nature Unified Digital Asset
+          </div>
         </div>
       </section>
 
