@@ -13,7 +13,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'AI engine not configured' }, { status: 500 });
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`;
 
     const systemInstruction = `You are BAYU — the autonomous intelligence and sales agent for Librae AI Labs Sdn Bhd.
 
