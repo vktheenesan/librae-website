@@ -1,23 +1,36 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-const interests = ['EUDR Compliance', 'Carbon Credit Generation', 'Sentinel Monitoring', 'Swarm Deployment', 'GANGAI Beta Waitlist', 'Partnership Inquiry'];
+const interests = ['EUDR Compliance', 'Carbon Credit Generation', 'Sentinel Monitoring', 'Swarm Deployment', 'CAHAYA Sovereign Licensing', 'Partnership Inquiry'];
 const regions = ['SE Asia', 'India', 'Americas', 'Europe', 'Middle East & Africa', 'Others'];
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ entity:'', interest:'', region:'', message:'' });
+  // Contact Form State
+  const [form, setForm] = useState({ name:'', email:'', entity:'', interest:'', region:'', message:'' });
   const [hashProgress, setHashProgress] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleChange = (field, val) => {
+  // Chatbot State
+  const [chatInput, setChatInput] = useState('');
+  const [messages, setMessages] = useState([
+    { role: 'system', text: 'Welcome to the secure gateway. I am BAYU, your environmental intelligence assistant. How can I assist you with CAHAYA Sovereign, LENUDA, or system diagnostics?' }
+  ]);
+  const [chatLoading, setChatLoading] = useState(false);
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const handleFormChange = (field, val) => {
     setForm(prev => ({ ...prev, [field]: val }));
     const filled = Object.values({ ...form, [field]: val }).filter(v => v.length > 0).length;
-    setHashProgress((filled / 4) * 100);
+    setHashProgress((filled / 6) * 100);
   };
 
-  const handleSubmit = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setErrorMsg('');
@@ -30,9 +43,36 @@ export default function ContactPage() {
       if (!res.ok) throw new Error('Transmission failed');
       setSubmitted(true);
     } catch (err) {
-      setErrorMsg('Failed to send transmission. Please try again.');
+      setErrorMsg('Failed to send secure transmission. Please check your network connection.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleChatSubmit = async (e) => {
+    e.preventDefault();
+    if (!chatInput.trim() || chatLoading) return;
+
+    const userText = chatInput.trim();
+    setChatInput('');
+    setMessages(prev => [...prev, { role: 'user', text: userText }]);
+    setChatLoading(true);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+      
+      if (!res.ok) throw new Error('Chat link failed');
+      
+      const data = await res.json();
+      setMessages(prev => [...prev, { role: 'system', text: data.reply || 'No transmission received.' }]);
+    } catch (err) {
+      setMessages(prev => [...prev, { role: 'system', text: 'Telemetry offline. Safe handshake could not be verified.' }]);
+    } finally {
+      setChatLoading(false);
     }
   };
 
@@ -42,10 +82,10 @@ export default function ContactPage() {
         <div className="container" style={{ position:'relative', zIndex:1, paddingTop:'2rem' }}>
           <div className="badge" style={{ marginBottom:'1.5rem' }}>🌍 Global Gateway</div>
           <h1 className="section-title" style={{ maxWidth:700 }}>
-            Direct Access to the{' '}<span className="gold-text">Architects</span>
+            Direct Access to the <span className="gold-text">Architects</span>
           </h1>
           <p className="section-subtitle">
-            Connect with our global headquarters in Malaysia, USA, and India. Every transmission is secured.
+            Connect with our global offices in Malaysia, USA, and India. Every transmission is secured and authenticated.
           </p>
         </div>
       </section>
@@ -59,8 +99,8 @@ export default function ContactPage() {
                 scope:'Global Strategy, AI Infrastructure, and Sovereign Partnerships', flag:'🇲🇾', color:'#D4AF37' },
               { name:'Sreebalaji Sampath', role:'Managing Director (India)', email:'sreebalajisampath@librae.work',
                 scope:'South Asian Operations, Restoration Projects, and Localized AI Development', flag:'🇮🇳', color:'#2E8B57' },
-              { name:'Administrative & Finance', role:'Operations Hub', email:'admin@librae.work',
-                scope:'Procurement, Invoicing, and Operational Support', flag:'🏢', color:'#4A9EFF' },
+              { name:'Operations Hub', role:'Administration & Finance', email:'admin@librae.work',
+                scope:'Procurement, Licensing audits, and Operational Support', flag:'🏢', color:'#4A9EFF' },
             ].map((p,i) => (
               <div key={i} className="glass-card" style={{ padding:'2.5rem', position:'relative' }}>
                 <div style={{ position:'absolute', top:0, left:0, right:0, height:3, background:`linear-gradient(90deg,${p.color},transparent)` }} />
@@ -76,13 +116,14 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* FORM */}
+          {/* FORM & CHAT WIDGET */}
           <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:'4rem', alignItems:'start' }}>
+            {/* Form */}
             <div>
               <div className="accent-line" />
-              <h2 className="section-title" style={{ fontSize:'2rem' }}>Secure Inquiry</h2>
+              <h2 className="section-title" style={{ fontSize:'2rem' }}>Secure Transmission Form</h2>
               <p style={{ color:'var(--text-secondary)', marginBottom:'2rem', fontSize:'0.9rem' }}>
-                Every submission generates a SHA-256 hash receipt for your records.
+                Every submission generates a SHA-256 hash receipt, synchronizing directly with our CRM database.
               </p>
 
               {submitted ? (
@@ -90,65 +131,95 @@ export default function ContactPage() {
                   <div style={{ fontSize:'3rem', marginBottom:'1rem' }}>✅</div>
                   <h3 style={{ color:'#D4AF37', marginBottom:'0.5rem' }}>Transmission Secured</h3>
                   <p style={{ color:'var(--text-secondary)', fontSize:'0.9rem' }}>
-                    Your inquiry has been submitted. A SHA-256 receipt will be sent to your inbox.
+                    Your inquiry has been submitted and synced with the CRM database. An automated SHA-256 validation receipt will be sent to your email.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleFormSubmit}>
                   <div style={{ display:'flex', flexDirection:'column', gap:'1.25rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                      <div>
+                        <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
+                          Full Name
+                        </label>
+                        <input type="text" required value={form.name} onChange={e => handleFormChange('name', e.target.value)}
+                          placeholder="Your Name"
+                          style={{
+                            width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
+                            color:'var(--text-primary)', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
+                          }} />
+                      </div>
+                      <div>
+                        <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
+                          Email Address
+                        </label>
+                        <input type="email" required value={form.email} onChange={e => handleFormChange('email', e.target.value)}
+                          placeholder="name@organization.com"
+                          style={{
+                            width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
+                            color:'var(--text-primary)', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
+                          }} />
+                      </div>
+                    </div>
+
                     <div>
                       <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
                         Entity Name
                       </label>
-                      <input type="text" required value={form.entity} onChange={e => handleChange('entity', e.target.value)}
-                        placeholder="Government, Estate, NGO, or Private Partner"
+                      <input type="text" required value={form.entity} onChange={e => handleFormChange('entity', e.target.value)}
+                        placeholder="Government Agency, Concession Group, NGO, or Private Enterprise"
                         style={{
                           width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
                           color:'var(--text-primary)', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
                         }} />
                     </div>
-                    <div>
-                      <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
-                        Primary Interest
-                      </label>
-                      <select required value={form.interest} onChange={e => handleChange('interest', e.target.value)}
-                        style={{
-                          width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
-                          color: form.interest ? 'var(--text-primary)' : '#607090', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
-                        }}>
-                        <option value="" disabled>Select your primary interest</option>
-                        {interests.map(int => <option key={int} value={int}>{int}</option>)}
-                      </select>
+                    
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                      <div>
+                        <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
+                          Primary Interest
+                        </label>
+                        <select required value={form.interest} onChange={e => handleFormChange('interest', e.target.value)}
+                          style={{
+                            width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
+                            color: form.interest ? 'var(--text-primary)' : '#607090', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
+                          }}>
+                          <option value="" disabled>Select interest</option>
+                          {interests.map(int => <option key={int} value={int}>{int}</option>)}
+                        </select>
+                      </div>
+                      <div>
+                        <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
+                          Region of Interest
+                        </label>
+                        <select required value={form.region} onChange={e => handleFormChange('region', e.target.value)}
+                          style={{
+                            width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
+                            color: form.region ? 'var(--text-primary)' : '#607090', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
+                          }}>
+                          <option value="" disabled>Select region</option>
+                          {regions.map(r => <option key={r} value={r}>{r}</option>)}
+                        </select>
+                      </div>
                     </div>
-                    <div>
-                      <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
-                        Region of Interest
-                      </label>
-                      <select required value={form.region} onChange={e => handleChange('region', e.target.value)}
-                        style={{
-                          width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
-                          color: form.region ? 'var(--text-primary)' : '#607090', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none',
-                        }}>
-                        <option value="" disabled>Select region</option>
-                        {regions.map(r => <option key={r} value={r}>{r}</option>)}
-                      </select>
-                    </div>
+
                     <div>
                       <label style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', display:'block', marginBottom:'6px' }}>
                         Message
                       </label>
-                      <textarea required value={form.message} onChange={e => handleChange('message', e.target.value)}
-                        placeholder="Describe your project or inquiry..."
+                      <textarea required value={form.message} onChange={e => handleFormChange('message', e.target.value)}
+                        placeholder="Detail your operational constraints or deployment requirements..."
                         rows="5"
                         style={{
                           width:'100%', padding:'14px 16px', background:'rgba(0,20,60,0.6)', border:'1px solid rgba(212,175,55,0.2)', borderRadius:10,
                           color:'var(--text-primary)', fontSize:'0.9rem', fontFamily:'Inter,sans-serif', outline:'none', resize:'vertical',
                         }} />
                     </div>
+
                     {/* SHA-256 Progress Bar */}
                     <div>
                       <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'4px' }}>
-                        <span style={{ color:'#607090', fontSize:'0.72rem', textTransform:'uppercase', letterSpacing:'1px' }}>SHA-256 Integrity</span>
+                        <span style={{ color:'#607090', fontSize:'0.72rem', textTransform:'uppercase', letterSpacing:'1px' }}>SHA-256 Receipt Seal</span>
                         <span style={{ fontFamily:'Space Mono,monospace', fontSize:'0.72rem', color:'#D4AF37' }}>{Math.round(hashProgress)}%</span>
                       </div>
                       <div style={{ height:4, background:'rgba(212,175,55,0.15)', borderRadius:2 }}>
@@ -156,24 +227,73 @@ export default function ContactPage() {
                           borderRadius:2, transition:'width 0.4s ease' }} />
                       </div>
                     </div>
+
                     {errorMsg && <p style={{color:'#FF6B6B', fontSize:'0.85rem', textAlign:'center'}}>{errorMsg}</p>}
+                    
                     <button type="submit" disabled={loading} className="btn-primary" style={{ width:'100%', justifyContent:'center', padding:'16px', fontSize:'1rem', opacity: loading ? 0.7 : 1 }}>
-                      {loading ? '🔐 Encrypting & Sending...' : '🔐 Send Secure Transmission'}
+                      {loading ? '🔐 Processing Cryptographic Receipt...' : '🔐 Execute Transmission'}
                     </button>
                   </div>
                 </form>
               )}
             </div>
 
-            {/* LOCATIONS */}
+            {/* Chatbot & Footprint */}
             <div>
+              {/* Secure Chat Widget */}
+              <div className="glass-card" style={{ padding:'1.5rem', marginBottom:'2rem', border: '1px solid rgba(74,158,255,0.25)', background: 'rgba(0,15,40,0.5)', display: 'flex', flexDirection: 'column', height: '420px' }}>
+                <div style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '8px', marginBottom: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ color: '#4A9EFF', fontWeight: 'bold', fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase' }}>🗣️ Secure Support Node (BAYU)</span>
+                  <span style={{ fontSize: '0.7rem', color: '#2E8B57', fontFamily: 'Space Mono, monospace' }}>Encrypted link</span>
+                </div>
+
+                {/* Messages Box */}
+                <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '10px', paddingRight: '5px', marginBottom: '10px' }}>
+                  {messages.map((m, i) => (
+                    <div key={i} style={{ 
+                      alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start',
+                      maxWidth: '85%',
+                      background: m.role === 'user' ? 'rgba(74,158,255,0.1)' : 'rgba(255,255,255,0.03)',
+                      border: m.role === 'user' ? '1px solid rgba(74,158,255,0.25)' : '1px solid rgba(255,255,255,0.05)',
+                      padding: '10px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.82rem',
+                      lineHeight: 1.5,
+                      color: m.role === 'user' ? '#E0E5FF' : '#BCC8D8'
+                    }}>
+                      {m.text}
+                    </div>
+                  ))}
+                  {chatLoading && (
+                    <div style={{ alignSelf: 'flex-start', fontSize: '0.78rem', color: '#607090', fontStyle: 'italic' }}>
+                      🛰️ Aligning signals...
+                    </div>
+                  )}
+                  <div ref={chatEndRef} />
+                </div>
+
+                {/* Input form */}
+                <form onSubmit={handleChatSubmit} style={{ display: 'flex', gap: '8px' }}>
+                  <input type="text" value={chatInput} onChange={e => setChatInput(e.target.value)} disabled={chatLoading}
+                    placeholder="Ask a technical or pricing question..."
+                    style={{
+                      flex: 1, padding: '10px 12px', background: 'rgba(0,10,30,0.8)', border: '1px solid rgba(74,158,255,0.2)', borderRadius: 8,
+                      color: 'var(--text-primary)', fontSize: '0.82rem', outline: 'none'
+                    }} />
+                  <button type="submit" disabled={chatLoading || !chatInput.trim()} className="btn-primary" style={{ padding: '10px 16px', fontSize: '0.8rem', background: '#4A9EFF', borderColor: '#4A9EFF' }}>
+                    Send
+                  </button>
+                </form>
+              </div>
+
+              {/* Footprint List */}
               <div className="accent-line" />
               <h2 className="section-title" style={{ fontSize:'1.6rem' }}>The Librae Footprint</h2>
-              <div style={{ display:'flex', flexDirection:'column', gap:'1.5rem', marginBottom:'2rem' }}>
+              <div style={{ display:'flex', flexDirection:'column', gap:'1.5rem' }}>
                 {[
-                  { flag:'🇲🇾', entity:'Librae Management Sdn Bhd', loc:'Batu Gajah, Perak & KL', role:'Global HQ · Regional ESG Infrastructure', color:'#D4AF37' },
-                  { flag:'🇺🇸', entity:'Librae Inc', loc:'USA Strategic Partnerships', role:'Corporate · Global Carbon Markets', color:'#4A9EFF' },
-                  { flag:'🇮🇳', entity:'Librae Pvt Ltd', loc:'Punjab & Haryana', role:'Operations · Tech Dev & Restoration', color:'#2E8B57' },
+                  { flag:'🇲🇾', entity:'Librae AI Labs Sdn Bhd', loc:'Batu Gajah, Perak & KL', role:'Global HQ · Operations Hub', color:'#D4AF37' },
+                  { flag:'🇺🇸', entity:'Librae Inc', loc:'USA Strategic Partnerships', role:'Corporate · Strategic Market Access', color:'#4A9EFF' },
+                  { flag:'🇮🇳', entity:'Librae Pvt Ltd', loc:'Punjab & Haryana', role:'Operations · Research & Tech Development', color:'#2E8B57' },
                 ].map((l,i) => (
                   <div key={i} className="glass-card" style={{ padding:'1.5rem', display:'flex', gap:'1rem', alignItems:'center' }}>
                     <div style={{ fontSize:'2rem' }}>{l.flag}</div>
@@ -184,29 +304,6 @@ export default function ContactPage() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* LENUDA Button */}
-              <div className="glass-card gold-glow" style={{ padding:'2rem', textAlign:'center' }}>
-                <p style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1.5px', marginBottom:'1rem' }}>Access the Platform</p>
-                <a href="https://lenuda.librae.work" target="_blank" rel="noopener noreferrer"
-                  className="btn-primary" style={{ width:'100%', justifyContent:'center', padding:'16px', fontSize:'1rem' }}>
-                  🔗 Go to LENUDA Platform
-                </a>
-                <p style={{ color:'#607090', fontSize:'0.72rem', marginTop:'0.75rem' }}>lenuda.librae.work · Powered by Polygon L2</p>
-              </div>
-
-              {/* Tech Stack */}
-              <div style={{ marginTop:'2rem' }}>
-                <p style={{ color:'#607090', fontSize:'0.72rem', textTransform:'uppercase', letterSpacing:'1.5px', marginBottom:'0.75rem' }}>Tech Stack</p>
-                <div style={{ display:'flex', flexWrap:'wrap', gap:'0.5rem' }}>
-                  {['D3.js / Three.js','SHA-256','Polygon L2','Gemini 3.1','Gemini 2.5','Vertex AI','Earth Engine','GKE','Google Cloud','GA4'].map(b => (
-                    <span key={b} style={{ padding:'4px 12px', background:'rgba(212,175,55,0.08)',
-                      border:'1px solid rgba(212,175,55,0.2)', borderRadius:100, fontSize:'0.7rem', color:'#D4AF37', fontWeight:600 }}>
-                      {b}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

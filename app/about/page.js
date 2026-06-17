@@ -2,24 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Librae | The Human Intelligence Behind the System',
-  description: 'Meet the architect and the distributed intelligence network behind Librae Environmental Intelligence — humans and AI, unified by one mission.',
+  title: 'About Librae | Executive Profile & Blueprint',
+  description: 'Meet the founder and learn the corporate blueprint, engineering pipeline, and mission timeline of Librae AI Labs Sdn Bhd.',
 };
 
-const aiAgents = [
-  { name:'CTO Agent', powered:'Gemini 3.1 (Vertex AI)', role:'Strategic expansion & system evolution', color:'#D4AF37', icon:'🧠', flow:['Strategy Input','Market Analysis','Roadmap Generation','Tech Scaling'] },
-  { name:'KIMI 2.5', powered:'Kimi (Moonshot AI)', role:'Deep-learning logic & localized adaptation', color:'#FF9F43', icon:'🤖', flow:['Pattern Recognition','Logic Reasoning','Refinement','Execution'] },
-  { name:'System Developer', powered:'Gemini 2.5 (AI Studio)', role:'Logic optimization & execution', color:'#2E8B57', icon:'⚙️', flow:['Code Input','Algorithm Review','Optimization','Logic Output'] },
-  { name:'Lead Architect', powered:'Claude Opus', role:'Structural integrity & experience design', color:'#4A9EFF', icon:'🏗️', flow:['Design Input','Structure Analysis','UX Review','Integrity Check'] },
-  { name:'External Auditor', powered:'Gemini 3.1 (Vertex AI)', role:'Verification & compliance enforcement', color:'#7B4AFF', icon:'🔍', flow:['Data Input','Cross-Reference','ESG Check','Compliance Report'] },
-];
-
 const timeline = [
-  { year:'Foundation', title:'Understanding Systems', desc:'Education and business — learning that systems shape outcomes, not intentions.', color:'#607090', icon:'📚' },
-  { year:'Realization', title:'The Gap', desc:'AI was advancing faster than humanity’s ability to apply it to real-world environmental crises.', color:'#D4AF37', icon:'🔄' },
-  { year:'Execution', title:'Deploying Infrastructure', desc:'Satellite + AI + blockchain deployed across millions of hectares in SE Asia.', color:'#2E8B57', icon:'🌍' },
-  { year:'2026', title:'Global Recognition', desc:'Fluxx Regional Leadership in AI Winner · NIA AIMspire Nominee · Okada Manila.', color:'#D4AF37', icon:'🏆' },
-  { year:'Future', title:'Global Standardization', desc:'LENUDA as the accepted standard for Digital Natural Assets across jurisdictions.', color:'#3EAB6C', icon:'🚀' },
+  { year: 'Foundation', title: 'Understanding Systems', desc: 'Born in Batu Gajah, Perak — learning that structural systems shape outcomes, not intentions.', color: '#607090', icon: '📚' },
+  { year: 'Realization', title: 'The Spatial Gap', desc: 'Recognized a critical gap: technology was advancing faster than organizations could deploy it for environmental sovereignty.', color: '#D4AF37', icon: '🔄' },
+  { year: 'Execution', title: 'Deploying Infrastructure', desc: 'Fusing satellite telemetry and local-first simulation nodes across millions of hectares in Southeast Asia.', color: '#2E8B57', icon: '🌍' },
+  { year: '2026', title: 'Strategic Milestones', desc: 'Fluxx Regional Leadership in AI Winner and NIA AIMspire Nominee at Okada Manila.', color: '#D4AF37', icon: '🏆' },
+  { year: 'Future', title: 'Civilization Infrastructure', desc: 'Standardizing LENUDA and CAHAYA as trusted operational layers for high-consequence environments.', color: '#3EAB6C', icon: '🚀' }
 ];
 
 export default function AboutPage() {
@@ -29,14 +21,13 @@ export default function AboutPage() {
       <section className="page-hero hero-bg grid-bg">
         <div className="container" style={{ position:'relative', zIndex:1, paddingTop:'2rem' }}>
           <div className="badge" style={{ marginBottom:'1.5rem' }}>
-            🌍 About Librae
+            🌍 About Librae AI Labs
           </div>
           <h1 className="section-title" style={{ maxWidth:700 }}>
-            From{' '}<span className="gold-text">Batu Gajah</span>{' '}
-            to the <span className="gradient-text">Systems of Earth</span>
+            From <span className="gold-text">Batu Gajah</span> to the Systems of Earth
           </h1>
-          <p className="section-subtitle">
-            A distributed intelligence network — humans and AI across continents, unified by one mission: environmental sovereignty through data truth.
+          <p className="section-subtitle" style={{ maxWidth: 800 }}>
+            Librae AI Labs Sdn Bhd is an elite Malaysian technology company headquartered in Batu Gajah, Perak & Kuala Lumpur, designing sovereign intelligence infrastructure for high-consequence environments.
           </p>
         </div>
       </section>
@@ -86,121 +77,87 @@ export default function AboutPage() {
             {/* Bio */}
             <div>
               <div className="accent-line" />
-              <h2 style={{ fontSize:'clamp(1.8rem,3vw,2.8rem)', marginBottom:'0.5rem' }}>
+              <h2 style={{ fontSize:'clamp(1.8rem,3vw,2.8rem)', marginBottom:'0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
                 The <span className="gold-text">Architect</span>
               </h2>
               <p style={{ color:'var(--text-muted)', fontSize:'0.8rem', textTransform:'uppercase', letterSpacing:'1.5px', marginBottom:'1.5rem' }}>
-                Theenesan VK Kunjaayappan · Founder & System Architect
+                Theenesan VK Kunjaayappan · Founder & Principal System Architect
               </p>
-              <p style={{ color:'var(--text-secondary)', lineHeight:1.9, marginBottom:'1.5rem' }}>
-                Born in Batu Gajah, Perak, Theenesan did not begin with satellites or AI — but with a simple understanding: <strong style={{ color:'#D4AF37' }}>systems shape outcomes</strong>.
+              <p style={{ color:'var(--text-secondary)', lineHeight:1.9, marginBottom:'1.5rem', fontSize: '0.98rem' }}>
+                Born in Batu Gajah, Perak, Theenesan VK founded Librae AI Labs with a simple conviction:
               </p>
-              <p style={{ color:'var(--text-secondary)', lineHeight:1.9, marginBottom:'1.5rem' }}>
-                From modest beginnings in education and business, he recognized a critical gap — technology was advancing faster than humanity's ability to apply it to real-world crises. He transitioned from entrepreneur to System Architect, designing infrastructure where AI serves not profit alone — but planetary balance.
-              </p>
-              <div style={{ padding:'1.5rem', background:'rgba(212,175,55,0.05)', border:'1px solid rgba(212,175,55,0.15)', borderRadius:12 }}>
-                <p style={{ color:'#D4AF37', fontWeight:600, fontSize:'1rem', fontStyle:'italic' }}>
-                  "If nature cannot speak, we will build systems that allow it to be heard — clearly, truthfully, and without distortion."
+              <div style={{ padding:'1.5rem', background:'rgba(212,175,55,0.05)', border:'1px solid rgba(212,175,55,0.15)', borderRadius:12, marginBottom: '1.5rem' }}>
+                <p style={{ color:'#D4AF37', fontWeight:600, fontSize:'1.1rem', fontStyle:'italic', margin: 0 }}>
+                  "If nature cannot speak, we will build systems that allow it to be understood more clearly."
                 </p>
-                <p style={{ color:'#607090', fontSize:'0.8rem', marginTop:'0.5rem' }}>— Theenesan VK Kunjaayappan</p>
               </div>
-              <div style={{ marginTop:'2rem', display:'flex', gap:'1rem' }}>
-                <a href="mailto:theenesanvk@librae.work" className="btn-primary">
-                  📧 Contact Theenesan
+              <p style={{ color:'var(--text-secondary)', lineHeight:1.9, marginBottom:'1.5rem', fontSize: '0.98rem' }}>
+                His work focuses on designing systems that bridge the gap between raw environmental data and practical, explainable intelligence. Under his leadership, Librae pursues a long-term vision of building infrastructure that seamlessly connects physical environments, digital networks, and autonomous execution layers.
+              </p>
+              <div style={{ marginTop:'2rem', display:'flex', gap:'1rem', flexWrap: 'wrap' }}>
+                <a href="https://www.google.com/search?q=https://www.linkedin.com/in/theenesan-vk-kunjaayappan-982a7a2a0/" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-flex', gap: '6px', alignItems: 'center' }}>
+                  🔗 Connect on LinkedIn
                 </a>
                 <Link href="/contact" className="btn-secondary">
                   Partner with Librae
                 </Link>
-                <a href="https://www.linkedin.com/in/theenesan-kunjaayappan-6bb064270/" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ borderColor: '#4A9EFF', color: '#4A9EFF' }}>
-                  🔗 Connect on LinkedIn
-                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────── AI AGENTS ──────── */}
+      {/* ──────── ENGINEERING PIPELINE ──────── */}
       <section className="section-padding grid-bg" style={{ background:'#000A1A' }}>
         <div className="container">
-          <div style={{ textAlign:'center', marginBottom:'4rem' }}>
-            <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
-            <h2 className="section-title">A Distributed Intelligence Network</h2>
-            <p className="section-subtitle" style={{ margin:'0 auto' }}>
-              Librae is not a traditional company. It is a coordinated intelligence system — spanning humans and AI across continents, connected through real-time data, not hierarchy.
-            </p>
-          </div>
-
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:'2rem' }}>
-            {aiAgents.map((agent, i) => (
-              <div key={i} className="glass-card" style={{ padding:'2.5rem', overflow:'hidden', position:'relative' }}>
-                <div style={{ position:'absolute', top:0, left:0, right:0, height:2, background:`linear-gradient(90deg,${agent.color},transparent)` }} />
-                <div style={{ display:'flex', alignItems:'flex-start', gap:'1.5rem', marginBottom:'1.5rem' }}>
-                  <div style={{
-                    width:56, height:56, borderRadius:14, flexShrink:0,
-                    background:`${agent.color}20`, border:`1px solid ${agent.color}40`,
-                    display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.8rem',
-                  }}>
-                    {agent.icon}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '5rem', alignItems: 'center' }}>
+            <div>
+              <div className="accent-line" />
+              <h2 className="section-title">The Engineering Pipeline</h2>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+                Our engineering pipeline utilizes rigorous automated testing, validation layers, and security audits to enforce absolute mathematical logic before software is compiled and cleared for air-gapped environments.
+              </p>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+                This ensures that all modules ship with maximum resource efficiency, complete data protection, and structural execution integrity. We operate on deterministic principles to eliminate the risks of probabilistic black boxes.
+              </p>
+            </div>
+            
+            <div className="glass-card" style={{ padding: '2.5rem', background: 'rgba(0,10,30,0.5)', border: '1px solid rgba(46,139,87,0.2)' }}>
+              <h3 style={{ color: '#2E8B57', marginBottom: '1.5rem', fontSize: '1.1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Validation Layers</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  { label: 'Mathematical Logic Auditing', desc: 'Verifies formulas against established spatial methodologies.' },
+                  { label: 'Air-Gapped Resource Compiles', desc: 'Minimizes CPU/VRAM footprint for offline processing.' },
+                  { label: 'Security Vulnerability Sweeps', desc: 'Secures local loopback daemons against internal leaks.' }
+                ].map((item, i) => (
+                  <div key={i} style={{ paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <strong style={{ color: '#E0E2E5', fontSize: '0.9rem', display: 'block', marginBottom: '2px' }}>{item.label}</strong>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', margin: 0, lineHeight: 1.4 }}>{item.desc}</p>
                   </div>
-                  <div>
-                    <h3 style={{ color:'var(--text-primary)', fontSize:'1.2rem', marginBottom:'0.25rem' }}>{agent.name}</h3>
-                    <p style={{ color:agent.color, fontSize:'0.8rem', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.5px' }}>
-                      Powered by {agent.powered}
-                    </p>
-                    <p style={{ color:'var(--text-muted)', fontSize:'0.85rem', marginTop:'0.25rem' }}>{agent.role}</p>
-                  </div>
-                </div>
-                <div>
-                  <p style={{ color:'#607090', fontSize:'0.75rem', textTransform:'uppercase', letterSpacing:'1px', marginBottom:'0.75rem' }}>
-                    Logic Flow
-                  </p>
-                  <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', flexWrap:'wrap' }}>
-                    {agent.flow.map((step, si) => (
-                      <span key={si} style={{ display:'flex', alignItems:'center', gap:'0.4rem' }}>
-                        <span style={{ padding:'4px 10px', background:`${agent.color}15`, border:`1px solid ${agent.color}30`,
-                          borderRadius:100, fontSize:'0.72rem', color:agent.color, fontWeight:600 }}>
-                          {step}
-                        </span>
-                        {si < agent.flow.length - 1 && <span style={{ color:`${agent.color}60`, fontSize:'0.8rem' }}>→</span>}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div style={{ marginTop:'3rem', padding:'2rem', background:'rgba(212,175,55,0.05)', border:'1px solid rgba(212,175,55,0.15)', borderRadius:16, textAlign:'center' }}>
-            <p style={{ color:'var(--text-secondary)', fontSize:'0.95rem', lineHeight:1.7 }}>
-              <span style={{ color:'#D4AF37', fontWeight:700 }}>The Human Role:</span> Humans do not compete with AI here. They anchor it with ethics, context, and accountability. Every SHA-256 hash and polygon assessment meets the highest standards of human oversight.
-            </p>
-            <div style={{ display:'flex', justifyContent:'center', flexWrap:'wrap', gap:'0.5rem', marginTop:'1rem' }}>
-              {['Google Gemini 3.1','Gemini 2.5','Vertex AI','AI Studio','Google Earth Engine','GKE','Google Cloud','GA4'].map(b => (
-                <span key={b} style={{ padding:'4px 12px', background:'rgba(74,158,255,0.08)', border:'1px solid rgba(74,158,255,0.2)', borderRadius:100, fontSize:'0.7rem', color:'#4A9EFF', fontWeight:600 }}>{b}</span>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────── GLOBAL TEAM ──────── */}
+      {/* ──────── GLOBAL HUBS ──────── */}
       <section className="section-padding" style={{ background:'linear-gradient(180deg,#001133,#000A1A)' }}>
         <div className="container">
-          <div style={{ textAlign:'center', marginBottom:'4rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
-            <h2 className="section-title">A Global Hybrid Workforce</h2>
+            <h2 className="section-title">A Unified International Structure</h2>
             <p className="section-subtitle" style={{ margin:'0 auto' }}>
-              A coordinated network across four nations — connected through real-time data, not hierarchy.
+              Librae AI Labs combines experienced human leadership with a highly integrated technical architecture across four international hubs.
             </p>
           </div>
 
           <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'1.5rem' }}>
             {[
-              { flag:'🇲🇾', country:'Malaysia', city:'Batu Gajah & KL', role:'Global HQ', desc:'Foundation of operations. MPOB-scale monitoring and system architecture.', color:'#D4AF37' },
-              { flag:'🇻🇳', country:'Vietnam', city:'Ho Chi Minh City', role:'Tech Development', desc:'Frontend engineering and data pipeline optimization specialists.', color:'#2E8B57' },
-              { flag:'🇮🇳', country:'India', city:'Punjab & Haryana', role:'Deep-Tech Hub', desc:'AI development, restoration projects, and large-scale analysis.', color:'#4A9EFF' },
-              { flag:'🇺🇸', country:'USA', city:'Strategic Hub', role:'Corporate Gateway', desc:'Silicon Valley partnerships and North American carbon market access.', color:'#7B4AFF' },
+              { flag:'🇲🇾', country:'Malaysia', city:'Batu Gajah & KL', role:'Global Headquarters', desc:'Strategic operations, core architecture, and national-scale environmental monitoring.', color:'#D4AF37' },
+              { flag:'🇻🇳', country:'Vietnam', city:'Ho Chi Minh City', role:'Tech Development', desc:'Frontend visualization pipelines and spatial Three.js rendering optimization.', color:'#2E8B57' },
+              { flag:'🇮🇳', country:'India', city:'Punjab & Haryana', role:'Deep-Tech Hub', desc:'Computational logic, deterministic calculation auditing, and large-scale asset analysis.', color:'#4A9EFF' },
+              { flag:'🇺🇸', country:'USA', city:'Strategic Hub', role:'Corporate Gateway', desc:'Tech partnership alignments and North American carbon market access coordinates.', color:'#7B4AFF' },
             ].map((loc, i) => (
               <div key={i} className="glass-card" style={{ padding:'2rem', textAlign:'center' }}>
                 <div style={{ fontSize:'2.5rem', marginBottom:'1rem' }}>{loc.flag}</div>
@@ -220,7 +177,7 @@ export default function AboutPage() {
       {/* ──────── TIMELINE ──────── */}
       <section className="section-padding grid-bg" style={{ background:'#000A1A' }}>
         <div className="container">
-          <div style={{ textAlign:'center', marginBottom:'4rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
             <h2 className="section-title">The Mission Timeline</h2>
           </div>

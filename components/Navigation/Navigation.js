@@ -6,14 +6,12 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/cahaya', label: 'CAHAYA Sovereign' },
+  { href: '/lenuda', label: 'LENUDA' },
+  { href: '/orbit-and-aerial', label: 'Orbit & Aerial' },
+  { href: '/truth-and-seal', label: 'Truth & Seal' },
+  { href: '/docs', label: 'Documentation' },
   { href: '/about', label: 'About' },
-  { href: '/cryptographic-seal', label: 'The Seal' },
-  { href: '/ground-truth', label: 'Ground-Truth' },
-  { href: '/aerial-intelligence', label: 'Aerial' },
-  { href: '/constellation', label: 'Constellation' },
-  { href: '/intelligence', label: 'Intelligence' },
-  { href: '/dmrv', label: 'DMRV Assurance' },
-  { href: '/formula', label: 'Formula' },
   { href: '/contact', label: 'Contact' },
 ];
 

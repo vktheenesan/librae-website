@@ -3,34 +3,10 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-const Globe = dynamic(() => import('@/components/Globe/Globe'), { ssr: false, loading: () => <div style={{ width:'100%', height:'100%', background:'radial-gradient(circle at 60% 40%, #001A33, #000A1A)' }} /> });
-
-const trinityCards = [
-  {
-    icon: '🔱',
-    color: '#D4AF37',
-    title: 'Truth',
-    subtitle: 'The Memory of the Land',
-    desc: 'Every boundary, every tree, every hectare holds a story. We convert KML, GeoJSON, and land deeds into immutable records — preserving what the land has always known.',
-    tags: ['SHA-256', 'Merkle Trees', 'Polygon L2'],
-  },
-  {
-    icon: '🧠',
-    color: '#2E8B57',
-    title: 'Intelligence',
-    subtitle: 'The Speed of Understanding',
-    desc: 'Nature does not wait. What once required 8 weeks of human interpretation is now understood in minutes through a multi-spectral observation layer — where no deforestation, emission, or anomaly remains unseen.',
-    tags: ['Gemini 3.1', 'Vertex AI', 'Earth Engine'],
-  },
-  {
-    icon: '🕊️',
-    color: '#4A9EFF',
-    title: 'Peace',
-    subtitle: 'The Outcome of Alignment',
-    desc: 'When humans align with nature’s laws, prosperity follows. We bridge small farmers to global ESG and EUDR standards — unlocking access, trust, and carbon value.',
-    tags: ['EUDR', 'Gold Standard', 'Carbon Markets'],
-  },
-];
+const Globe = dynamic(() => import('@/components/Globe/Globe'), { 
+  ssr: false, 
+  loading: () => <div style={{ width:'100%', height:'100%', background:'radial-gradient(circle at 60% 40%, #001A33, #000A1A)' }} /> 
+});
 
 function AnimatedCounter({ target, suffix, duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -42,8 +18,12 @@ function AnimatedCounter({ target, suffix, duration = 2000 }) {
         const step = target / (duration / 16);
         const timer = setInterval(() => {
           start += step;
-          if (start >= target) { setCount(target); clearInterval(timer); }
-          else setCount(Math.floor(start));
+          if (start >= target) { 
+            setCount(target); 
+            clearInterval(timer); 
+          } else {
+            setCount(Math.floor(start));
+          }
         }, 16);
         observer.disconnect();
       }
@@ -55,6 +35,19 @@ function AnimatedCounter({ target, suffix, duration = 2000 }) {
 }
 
 export default function HomePage() {
+  const industries = [
+    { icon: '🌾', title: 'Agriculture and ESG', desc: 'RSPO/MSPO boundary auditing and EUDR tracking.' },
+    { icon: '⛏️', title: 'Mining and Resource Management', desc: 'JORC 2012 / NI 43-101 volumetric auditing.' },
+    { icon: '🏗️', title: 'Infrastructure and Construction', desc: 'Deformation and encroachment telemetry.' },
+    { icon: '🏙️', title: 'Urban Planning', desc: 'FAR density mapping and solar shadow paths.' },
+    { icon: '🌊', title: 'Environmental Intelligence', desc: 'EIA automation and sediment runoff trackers.' },
+    { icon: '🌳', title: 'Forestry and Carbon Projects', desc: 'Verra VCS canopy height and volume metrics.' },
+    { icon: '🚢', title: 'Maritime and Coastal Operations', desc: 'S-57 navigational contours and wave erosion.' },
+    { icon: '⚡', title: 'Energy and Renewables', desc: 'GHI solar yield and Weibull wind vector maps.' },
+    { icon: '🚨', title: 'Emergency Response', desc: 'Rothermel wildfire propagation paths and flood routing.' },
+    { icon: '🛡️', title: 'Defense and Security', desc: 'SCIF-ready viewsheds and terrain threat tracking.' }
+  ];
+
   return (
     <>
       {/* ──────── HERO ──────── */}
@@ -69,28 +62,28 @@ export default function HomePage() {
         }}>
           <div>
             <div className="badge" style={{ marginBottom: '1.5rem' }}>
-              🌍 The Definitive Layer for Global ESG Compliance
+              🛡️ Sovereign Intelligence Infrastructure
             </div>
             <h1 style={{
               fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', lineHeight: 1.08,
               marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800,
             }}>
-              Intelligence for{' '}<span className="gold-text">Certainty.</span>
-              <br />Infrastructure for{' '}<span className="gradient-text">Truth.</span>
+              Sovereign Intelligence for the{' '}<span className="gold-text">Physical</span>
+              <br />and{' '}<span className="gradient-text">Digital World.</span>
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem', maxWidth: 520 }}>
-              We transform planetary signals into cryptographically sealed, institutional-grade natural intelligence. Eliminate reputational risk and unlock premium carbon valuation with continuous Digital MRV.
+              Librae AI Labs is an elite technology company that designs and engineers sovereign intelligence infrastructure for organizations operating in high-consequence physical and digital environments.
             </p>
             <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap:'wrap' }}>
-              <Link href="/dmrv" className="btn-primary">🔐 Unlock Premium DMRV</Link>
-              <Link href="/contact" className="btn-secondary">Access Sovereign Infrastructure</Link>
+              <Link href="/cahaya" className="btn-primary">🛰️ CAHAYA Sovereign</Link>
+              <Link href="/lenuda" className="btn-secondary">🌿 LENUDA Platform</Link>
             </div>
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
               {[
                 { value: 3, suffix:'M+', label: 'Hectares Monitored' },
-                { value: 5, suffix:' min', label: 'Report Generation' },
-                { value: 30, suffix:'g', label: 'CO₂ Per Assessment' },
+                { value: 0, suffix:' ms', label: 'Local Compute Latency' },
+                { value: 0, suffix:'%', label: 'Cloud Leakage Risk' },
               ].map((stat, i) => (
                 <div key={i} style={{ textAlign: 'center' }}>
                   <div className="stat-number"><AnimatedCounter target={stat.value} suffix={stat.suffix} /></div>
@@ -106,50 +99,112 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ──────── DECLARATION ──────── */}
+      {/* ──────── CORE CREED ──────── */}
       <section style={{ padding: '80px 0', background: 'linear-gradient(180deg,#000A1A,#001133)', position: 'relative' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
           <div className="accent-line" style={{ margin: '0 auto 2rem' }} />
+          <h4 style={{ color: '#D4AF37', fontFamily: 'Space Mono, monospace', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1rem' }}>
+            Our Foundational Creed
+          </h4>
           <p style={{
-            color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 2, letterSpacing: '0.3px',
+            color: 'var(--text-primary)', fontSize: '1.4rem', lineHeight: 1.8, fontFamily: 'Outfit, sans-serif', fontWeight: 600, letterSpacing: '0.3px',
+            marginBottom: '2rem'
           }}>
-            "We are not a software company.
-            <br />We are not a consultancy.
-            <br />We are not an analytics platform."
+            "Better decisions emerge when information becomes understandable, traceable, and actionable."
           </p>
-          <h2 style={{
-            fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', margin: '2rem 0',
-            color: '#D4AF37', fontFamily: 'Outfit,sans-serif', fontWeight: 800,
-          }}>
-            We are infrastructure for environmental truth.
-          </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 2 }}>
-            Where systems fail to see, we measure.
-            <br />Where truth is questioned, we verify.
-            <br />Where nature is ignored, we enforce.
+          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 2, maxWidth: 650, margin: '0 auto' }}>
+            We believe technology should augment human judgment, not replace it. Physical systems, environmental conditions, and critical infrastructure involve high-consequence decisions where accuracy, traceability, and security matter deeply.
           </p>
         </div>
       </section>
 
-      {/* ──────── TRINITY ──────── */}
+      {/* ──────── PRODUCT ECOSYSTEM ──────── */}
       <section className="section-padding grid-bg" style={{ background: '#000A1A' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
-            <h2 className="section-title">Three Layers of Truth</h2>
+            <h2 className="section-title">The Unified Product Ecosystem</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>
+              Librae AI Labs engineers three interconnected operational layers that form a complete sovereign intelligence framework.
+            </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '2rem' }}>
-            {trinityCards.map((card, i) => (
-              <div key={i} className="glass-card" style={{ padding: '2.5rem', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg,${card.color},transparent)` }} />
-                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{card.icon}</div>
-                <h3 style={{ color: card.color, fontSize: '1.3rem', marginBottom: '0.25rem' }}>{card.title}</h3>
-                <p style={{ color: '#607090', fontSize: '0.8rem', fontStyle: 'italic', marginBottom: '1rem' }}>{card.subtitle}</p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>{card.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                  {card.tags.map(tag => (
-                    <span key={tag} style={{ padding: '4px 10px', background: `${card.color}12`, border: `1px solid ${card.color}25`, borderRadius: 100, fontSize: '0.7rem', color: card.color, fontWeight: 600 }}>{tag}</span>
-                  ))}
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            {/* BAYU */}
+            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#4A9EFF,transparent)' }} />
+                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🤖</div>
+                <h3 style={{ color: '#4A9EFF', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>BAYU</h3>
+                <p style={{ color: '#607090', fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  Autonomous Commercial Automation Engine
+                </p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                  A coordinated orchestration platform designed to handle complex information processing, structural pipeline tracking, high-volume documentation preparation, and operational asset workflows under strict human supervision.
+                </p>
+              </div>
+              <div style={{ marginTop: '2rem' }}>
+                <Link href="/contact" className="btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Inquire Details</Link>
+              </div>
+            </div>
+
+            {/* LENUDA */}
+            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#2E8B57,transparent)' }} />
+                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🌿</div>
+                <h3 style={{ color: '#2E8B57', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>LENUDA</h3>
+                <p style={{ color: '#607090', fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  Cloud-Native Enterprise Environment
+                </p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                  A unified, highly scalable cloud-native hub for geospatial twin rendering, intensive data ingestion workloads, distributed GPU infrastructure, and certified digital assets. Delivers enterprise-wide intelligence without massive local infrastructure investments.
+                </p>
+              </div>
+              <div style={{ marginTop: '2rem' }}>
+                <Link href="/lenuda" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', borderColor: '#2E8B57', color: '#2E8B57' }}>Explore Platform</Link>
+              </div>
+            </div>
+
+            {/* CAHAYA Sovereign */}
+            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#D4AF37,transparent)' }} />
+                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🛰️</div>
+                <h3 style={{ color: '#D4AF37', fontSize: '1.4rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>CAHAYA Sovereign</h3>
+                <p style={{ color: '#607090', fontSize: '0.75rem', fontStyle: 'italic', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  Local-First, Air-Gapped Simulation Framework
+                </p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                  A high-performance geospatial intelligence and 3D terrain simulation platform built specifically for secure and disconnected environments. Processes multi-spectral imagery, drone LiDAR, and local vector data locally on client hardware via WebGPU.
+                </p>
+              </div>
+              <div style={{ marginTop: '2rem' }}>
+                <Link href="/cahaya" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', borderColor: '#D4AF37', color: '#D4AF37' }}>Review Engine</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────── INDUSTRIES SERVED ──────── */}
+      <section className="section-padding" style={{ background: 'linear-gradient(180deg,#000A1A,#001133)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <div className="accent-line" style={{ margin: '0 auto 1.5rem' }} />
+            <h2 className="section-title">High-Consequence Verticals We Serve</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: 600, margin: '0 auto' }}>
+              Our unified infrastructure platforms natively support organizations operating across ten major sectors.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+            {industries.map((ind, i) => (
+              <div key={i} className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
+                <div style={{ fontSize: '2rem' }}>{ind.icon}</div>
+                <div>
+                  <h4 style={{ color: '#E0E2E5', fontSize: '1rem', fontWeight: 700, margin: '0 0 4px' }}>{ind.title}</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>{ind.desc}</p>
                 </div>
               </div>
             ))}
@@ -157,157 +212,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ──────── THE PROBLEM ──────── */}
-      <section className="section-padding" style={{ background: 'linear-gradient(180deg,#001133,#000A1A)' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-            <div>
-              <div className="accent-line" />
-              <h2 className="section-title">The Broken Balance</h2>
-              <blockquote style={{ fontSize: '1.05rem', lineHeight: 1.9 }}>
-                "A system meant to protect the Earth has become inaccessible to those who depend on it most."
-              </blockquote>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginTop: '1.5rem' }}>
-                Traditional ESG compliance can cost up to <strong style={{ color: '#FF6B6B' }}>$10,000 USD</strong> — an impossible burden for a farmer with 5 rai of land.
-              </p>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginTop: '1rem' }}>
-                Across Southeast Asia, millions of hectares risk exclusion from global markets — not due to wrongdoing, but due to complexity.
-              </p>
-              <p style={{ color: '#D4AF37', fontWeight: 700, fontFamily: 'Outfit,sans-serif', fontSize: '1.1rem', marginTop: '1.5rem' }}>
-                The imbalance is clear. We restore it.
-              </p>
-            </div>
-            <div>
-              <div className="accent-line" />
-              <h3 style={{ color: '#2E8B57', fontFamily: 'Outfit,sans-serif', fontSize: '1.3rem', marginBottom: '1.5rem' }}>How We Restore It</h3>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
-                We scale integrity — processing millions of estates while preserving precision at the individual polygon level.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {[
-                  { title: 'Batch Processing', desc: '100,000+ polygons in a single pipeline run.', color: '#D4AF37' },
-                  { title: 'Individual Precision', desc: 'Every farmer’s 5-rai plot receives the same scientific rigor as a 50,000-hectare estate.', color: '#2E8B57' },
-                  { title: 'Democratized Access', desc: '$5/hectare replaces $10,000 consultancy.', color: '#4A9EFF' },
-                ].map((s, i) => (
-                  <div key={i} className="glass-card" style={{ padding: '1.25rem 1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                    <div style={{ width: 6, height: 6, borderRadius: 3, background: s.color, flexShrink: 0, marginTop: 8 }} />
-                    <div>
-                      <strong style={{ color: s.color, fontSize: '0.9rem' }}>{s.title}</strong>
-                      <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.6 }}>{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ──────── TECHNICAL SOVEREIGNTY ──────── */}
+      {/* ──────── CORE PRINCIPLES ──────── */}
       <section className="section-padding grid-bg" style={{ background: '#000A1A' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <div className="accent-line" style={{ margin:'0 auto 1.5rem' }} />
-            <h2 className="section-title">The Infrastructure of Truth</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', fontStyle: 'italic', maxWidth: 600, margin: '0 auto' }}>
-              Nature cannot be negotiated with.
-              It can only be measured, verified, and respected.
-            </p>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '2rem', marginBottom: '2rem' }}>
-            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#4A9EFF,transparent)' }} />
-              <h3 style={{ color: '#4A9EFF', marginBottom: '0.5rem', fontSize: '1.2rem' }}>🛰️ Satellite Intelligence</h3>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                We listen through multiple lenses — radar, optical, atmospheric — capturing truth beyond human visibility. A multi-spectral observation layer where no deforestation, emission, or anomaly remains unseen.
-              </p>
-            </div>
-            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#D4AF37,transparent)' }} />
-              <h3 style={{ color: '#D4AF37', marginBottom: '0.5rem', fontSize: '1.2rem' }}>🔐 Cryptographic Integrity</h3>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                Every dataset is sealed using SHA-256 and structured into Merkle Trees. Once recorded, truth cannot be altered — only verified. No greenwashing. No manipulation. Only verifiable reality.
-              </p>
-            </div>
-          </div>
-          {/* Trust Trigger */}
-          <div style={{ padding: '1.5rem 2rem', background: 'rgba(212,175,55,0.05)', border: '1px solid rgba(212,175,55,0.15)', borderRadius: 12, textAlign: 'center' }}>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', fontStyle: 'italic' }}>
-              "A report generated within Librae is not a claim. It is a <strong style={{ color: '#D4AF37' }}>verifiable position</strong> — defensible across jurisdictions."
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ──────── VOICE OF NATURE ──────── */}
-      <section className="section-padding" style={{ background: 'linear-gradient(180deg,#001133,#000A1A)' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '5rem', alignItems: 'center' }}>
             <div>
               <div className="accent-line" />
-              <p style={{ color: '#607090', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1rem' }}>
-                Librae Environment Nature Unified Digital Asset
+              <h2 className="section-title">Core Principles of Librae Architecture</h2>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem' }}>
+                We engineer systems designed for years of uninterrupted operation and compliance verification. Every design choice is driven by these core pillars:
               </p>
-              <h2 className="section-title">
-                <span className="gold-text">LENUDA</span> — The Voice of Nature
-              </h2>
-              <div style={{ marginBottom: '2rem', background:'rgba(212,175,55,0.03)', padding:'1.5rem', borderLeft:'3px solid #D4AF37', borderRadius:'0 12px 12px 0' }}>
-                <p style={{ color: 'var(--text-primary)', fontSize: '1.1rem', lineHeight: 1.8, fontWeight: 500 }}>
-                  To the market, nature is an opaque risk. To Librae, it is a quantifiable, verified asset.
-                </p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.8, fontStyle: 'italic', marginTop:'1rem' }}>
-                  The forest cannot sign an audit. The ocean cannot testify in compliance hearings. The atmosphere cannot guarantee a carbon offset.
-                </p>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginTop: '1rem' }}>
-                  Yet, their undeniable truth determines billions in institutional capital. We are the sovereign intelligence layer that listens—translating ecological signals into indisputable, board-level evidence.
-                </p>
-              </div>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-                LENUDA is not a tokenization layer. It is a <strong style={{ color: '#D4AF37' }}>standardization of verified natural truth</strong>. Built for governments mapping sovereign wealth, and investors demanding 0% greenwashing risk.
-              </p>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <a href="https://lenuda.librae.work" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  🔗 Explore LENUDA
-                </a>
-                <Link href="/constellation" className="btn-secondary">🛰️ See the Constellation</Link>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div>
+                  <strong style={{ color: '#D4AF37', display: 'block', marginBottom: '4px' }}>Sovereignty</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>Organizations must retain absolute, structural control of their data assets and local execution environments.</p>
+                </div>
+                <div>
+                  <strong style={{ color: '#2E8B57', display: 'block', marginBottom: '4px' }}>Determinism</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>Calculations and outputs must be explainable, reproducible, and grounded in established, verifiable scientific methodologies.</p>
+                </div>
+                <div>
+                  <strong style={{ color: '#4A9EFF', display: 'block', marginBottom: '4px' }}>Operational Intelligence</strong>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>Technology should actively simplify complexity and enable swift, confident human decisions at the operational boundary.</p>
+                </div>
               </div>
             </div>
-            <div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
-                {[
-                  { icon: '🛡️', label: 'Enforce', desc: 'Accountability where harm exists', color: '#D4AF37' },
-                  { icon: '🌿', label: 'Protect', desc: 'Ecosystems where balance remains', color: '#2E8B57' },
-                  { icon: '🔐', label: 'Seal', desc: 'Every truth with cryptographic proof', color: '#7B4AFF' },
-                  { icon: '🌍', label: 'Translate', desc: 'Earth’s signals into human action', color: '#4A9EFF' },
-                ].map((r, i) => (
-                  <div key={i} className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{r.icon}</div>
-                    <h4 style={{ color: r.color, fontSize: '0.95rem', marginBottom: '0.25rem' }}>{r.label}</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', lineHeight: 1.5 }}>{r.desc}</p>
-                  </div>
-                ))}
-              </div>
-              {/* Closing line */}
-              <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: 'rgba(212,175,55,0.05)', border: '1px solid rgba(212,175,55,0.15)', borderRadius: 12 }}>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.7, textAlign: 'center' }}>
-                  We are not observers. We are the voice nature never had — and the enforcement it always needed.
+            
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="glass-card gold-glow" style={{ padding: '3rem', border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.02)', textAlign: 'center' }}>
+                <span style={{ fontSize: '3rem', marginBottom: '1.5rem', display: 'block' }}>🛡️</span>
+                <h4 style={{ color: 'var(--text-primary)', fontSize: '1.1rem', marginBottom: '1rem', fontWeight: 800 }}>Librae AI Labs sdn bhd</h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '2rem' }}>
+                  Registered and based in Batu Gajah, Perak & Kuala Lumpur, Malaysia. Delivering enterprise-grade environmental and geospatial infrastructure globally.
                 </p>
+                <Link href="/about" className="btn-primary" style={{ width: '100%', justifyContent: 'center', background: '#D4AF37', borderColor: '#D4AF37', color: '#000A1A' }}>
+                  Learn Our History
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────── CLOSING ──────── */}
-      <section style={{ padding: '80px 0', background: 'linear-gradient(135deg,#001133,#001A00)', position: 'relative' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: 2, maxWidth: 600, margin: '0 auto 2rem', fontStyle: 'italic' }}>
-            "We do not generate data.
-            <br />We reveal what the Earth has already recorded."
+      {/* ──────── CTA FOOTER ──────── */}
+      <section style={{ padding: '100px 0', background: 'linear-gradient(135deg,#001133,#001A00)', position: 'relative', textAlign: 'center' }}>
+        <div className="container">
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', color: 'var(--text-primary)', marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
+            Establish Your Environmental Trust Infrastructure
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: 2, maxWidth: 600, margin: '0 auto 2.5rem' }}>
+            Speak directly with our systems architects to deploy local-first simulation nodes or verify supply chain compliance.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <Link href="/intelligence" className="btn-primary" style={{ padding: '16px 40px' }}>🧠 Explore the Intelligence Suite</Link>
-            <Link href="/contact" className="btn-secondary" style={{ padding: '15px 39px' }}>🌿 Connect with Librae</Link>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/docs" className="btn-secondary" style={{ padding: '16px 40px' }}>📄 Read System Documentation</Link>
+            <Link href="/contact" className="btn-primary" style={{ padding: '16px 40px' }}>🌿 Contact Librae AI Labs</Link>
           </div>
         </div>
       </section>
