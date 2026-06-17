@@ -97,7 +97,8 @@ export default function Footer() {
             <h5 style={{ color: '#D4AF37', marginBottom: '1rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Intelligence</h5>
             {[
               { href: '/truth-and-seal', label: 'Truth & Seal' },
-              { href: '/formula', label: 'The Formula' },
+              { href: '/compare', label: 'Librae vs Palantir/ESRI' },
+              { href: '/intelligence-overview', label: 'Intelligence Overview' },
               { href: '/docs', label: 'Documentation' },
               { href: '/contact', label: 'Global Gateway' },
             ].map(l => (

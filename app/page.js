@@ -250,7 +250,7 @@ export default function HomePage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {/* BAYU */}
-            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card border-fill-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#4A9EFF,transparent)' }} />
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🤖</div>
@@ -263,12 +263,12 @@ export default function HomePage() {
                 </p>
               </div>
               <div style={{ marginTop: '2rem' }}>
-                <Link href="/contact" className="btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Inquire Details</Link>
+                <Link href="/contact" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', borderColor: 'rgba(74,158,255,0.4)', color: '#4A9EFF' }}>🤖 Talk to BAYU</Link>
               </div>
             </div>
 
             {/* LENUDA */}
-            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card border-fill-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#2E8B57,transparent)' }} />
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🌿</div>
@@ -286,7 +286,7 @@ export default function HomePage() {
             </div>
 
             {/* CAHAYA */}
-            <div className="glass-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card border-fill-card" style={{ padding: '2.5rem', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#D4AF37,transparent)' }} />
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>🛰️</div>
