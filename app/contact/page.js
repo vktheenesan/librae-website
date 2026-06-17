@@ -19,6 +19,7 @@ export default function ContactPage() {
     { role: 'system', text: 'Welcome to the secure gateway. I am BAYU, your environmental intelligence assistant. How can I assist you with CAHAYA, LENUDA, or system diagnostics?' }
   ]);
   const [chatLoading, setChatLoading] = useState(false);
+  const [chatSessionId, setChatSessionId] = useState(null);
   const chatEndRef = useRef(null);
 
   useEffect(() => {
@@ -63,12 +64,15 @@ export default function ContactPage() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userText })
+        body: JSON.stringify({ message: userText, session_id: chatSessionId, source: 'website' })
       });
       
       if (!res.ok) throw new Error('Chat link failed');
       
       const data = await res.json();
+      if (data.session_id && !chatSessionId) {
+        setChatSessionId(data.session_id);
+      }
       setMessages(prev => [...prev, { role: 'system', text: data.reply || 'No transmission received.' }]);
     } catch (err) {
       setMessages(prev => [...prev, { role: 'system', text: 'Telemetry offline. Safe handshake could not be verified.' }]);

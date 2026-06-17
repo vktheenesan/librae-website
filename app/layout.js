@@ -1,6 +1,7 @@
 import './globals.css';
 import Navigation from '@/components/Navigation/Navigation';
 import Footer from '@/components/Navigation/Footer';
+import BayuChat from '@/components/BayuChat/BayuChat';
 
 // ─── SITE METADATA ───────────────────────────────────────────────────────────
 export const metadata = {
@@ -389,6 +390,7 @@ export default function RootLayout({ children }) {
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <BayuChat />
       </body>
     </html>
   );

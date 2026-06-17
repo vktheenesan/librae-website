@@ -119,6 +119,41 @@ export default function DocsPage() {
             </p>
           </div>
 
+          {/* Product Documentation Downloads */}
+          <div style={{ marginTop: '4rem', paddingTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+            <div className="accent-line" style={{ width: '40px', height: '3px', background: '#ffb703', marginBottom: '1.5rem' }} />
+            <h2 style={{ fontSize: '1.8rem', color: '#E0E2E5', marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
+              Product Documentation
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
+              Comprehensive technical reference documents for each platform. Download or view online.
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <a href="/docs/CAHAYA_MASTER.md" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(212,175,55,0.2)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>🛰️</div>
+                <div>
+                  <h4 style={{ color: '#D4AF37', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 700 }}>CAHAYA Documentation</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
+                    Desktop workspace architecture, 3-panel layout, 10 industry domains, pricing tiers, system requirements, installation guide, security model.
+                  </p>
+                  <span style={{ color: '#ffb703', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block' }}>View CAHAYA_MASTER.md →</span>
+                </div>
+              </a>
+
+              <a href="/docs/LENUDA_MASTER.md" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(46,139,87,0.2)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>🌿</div>
+                <div>
+                  <h4 style={{ color: '#2E8B57', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 700 }}>LENUDA Documentation</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
+                    Cloud-native environmental ledger, dMRV pipeline, EUDR compliance, satellite monitoring, blockchain attestation, carbon credit verification.
+                  </p>
+                  <span style={{ color: '#22c55e', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block' }}>View LENUDA_MASTER.md →</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
     </>
