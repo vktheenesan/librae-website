@@ -100,9 +100,9 @@ export default function CahayaPage() {
   ];
 
   const downloadFiles = {
-    macOS: { file: 'cahaya-macos-universal.dmg', label: '🍏 macOS Universal', ext: '.dmg', size: '~45 MB' },
-    Windows: { file: 'cahaya-windows-setup.exe', label: '💻 Windows Setup', ext: '.exe', size: '~52 MB' },
-    Linux: { file: 'cahaya-linux.AppImage', label: '🐧 Linux Standalone', ext: '.AppImage', size: '~48 MB' },
+    macOS: { file: 'cahaya-macos-universal.zip', label: '🍏 macOS Universal', ext: '.zip', size: '~3.2 MB' },
+    Windows: { file: 'cahaya-windows-setup.zip', label: '💻 Windows Setup', ext: '.zip', size: '3.2 MB' },
+    Linux: { file: 'cahaya-linux.zip', label: '🐧 Linux Standalone', ext: '.zip', size: '3.2 MB' },
   };
 
   const gettingStarted = [
