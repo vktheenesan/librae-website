@@ -165,7 +165,7 @@ export default function Footer() {
             color: '#D4AF37', fontWeight: 600, fontStyle: 'italic',
             fontSize: '0.95rem', textAlign: 'center', marginBottom: '1.5rem', letterSpacing: '0.3px',
           }}>
-            "Truth exists with or without us. Librae ensures it cannot be ignored."
+            &ldquo;Truth exists with or without us. Librae ensures it cannot be ignored.&rdquo;
           </p>
           <div style={{
             display: 'flex', justifyContent: 'space-between',
