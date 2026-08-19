@@ -270,7 +270,7 @@ export default function HomePage() {
           pointerEvents: 'none',
           userSelect: 'none',
           zIndex: 0,
-        }}>"</div>
+        }}>&ldquo;</div>
 
         <div className="container" style={{ textAlign: 'center', maxWidth: 860, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{
@@ -292,7 +292,7 @@ export default function HomePage() {
             fontWeight: 700,
             marginBottom: '2rem',
           }}>
-            "Truth exists with or without us. Librae ensures it cannot be ignored."
+            &ldquo;Truth exists with or without us. Librae ensures it cannot be ignored.&rdquo;
           </p>
 
           <p style={{

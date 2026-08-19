@@ -26,7 +26,7 @@ export default function CarbonEstimator() {
     const uplift = libraeValue - traditionalValue;
 
     return { estimatedTCO2e, traditionalValue, libraeValue, uplift, premiumPrice: r.premium };
-  }, [area, unit, type, totalHectares]);
+  }, [type, totalHectares]);
 
   return (
     <div className="glass-card" style={{ padding: '2.5rem' }}>
@@ -86,7 +86,7 @@ export default function CarbonEstimator() {
           <div style={{ marginTop: '2rem' }}>
             <div style={{ marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                <span style={{ color: '#607090', fontSize: '0.8rem' }}>Traditional "Paper Credit" ($5)</span>
+                <span style={{ color: '#607090', fontSize: '0.8rem' }}>Traditional &ldquo;Paper Credit&rdquo; ($5)</span>
                 <span style={{ color: 'var(--text-secondary)', fontFamily: 'Space Mono', fontSize: '0.9rem' }}>${Math.round(data.traditionalValue).toLocaleString()}</span>
               </div>
               <div style={{ width: '100%', height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>

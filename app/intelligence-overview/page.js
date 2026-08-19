@@ -249,7 +249,7 @@ export default function IntelligenceOverviewPage() {
             Ready to Build on Sovereign Intelligence?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 560, margin: '0 auto 2.5rem', lineHeight: 1.8 }}>
-            Talk to BAYU — Librae's autonomous agent — or reach Theenesan directly for enterprise and government engagements.
+            Talk to BAYU — Librae&apos;s autonomous agent — or reach Theenesan directly for enterprise and government engagements.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn-primary">🤖 Talk to BAYU</Link>

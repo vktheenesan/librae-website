@@ -150,7 +150,7 @@ Execution Trace:
             fontFamily: 'Outfit, sans-serif',
             color: '#F0F4FF',
           }}>
-            We Don't Ask For Trust.{' '}
+            We Don&apos;t Ask For Trust.{' '}
             <span style={{
               background: 'linear-gradient(135deg, #D4AF37 0%, #F0D060 50%, #10b981 100%)',
               WebkitBackgroundClip: 'text',

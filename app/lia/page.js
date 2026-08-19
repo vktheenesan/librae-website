@@ -218,7 +218,7 @@ export default function LIAPage() {
               </p>
 
               <div style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.76rem', background: 'rgba(0,0,0,0.6)', padding: '1.25rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '1.5rem' }}>
-                <div style={{ color: '#c084fc', marginBottom: '6px' }}>// LIA Deterministic Audit Receipt</div>
+                <div style={{ color: '#c084fc', marginBottom: '6px' }}>{'//'} LIA Deterministic Audit Receipt</div>
                 <div style={{ color: '#8090b0' }}>BNF_Grammar_State: <span style={{ color: '#10b981' }}>ENFORCED (0% Drift)</span></div>
                 <div style={{ color: '#8090b0' }}>eBPF_Probe_Latency: <span style={{ color: '#38bdf8' }}>14.2 µs</span></div>
                 <div style={{ color: '#8090b0' }}>Agent_Sandbox_Boundary: <span style={{ color: '#D4AF37' }}>WASM Air-Gapped</span></div>

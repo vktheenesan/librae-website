@@ -204,7 +204,7 @@ export default function LEIPage() {
               </div>
 
               <div style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.78rem', background: 'rgba(0,0,0,0.6)', padding: '1.25rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ color: '#10b981', marginBottom: '6px' }}>// LEI C/SIMD Kernel Execution Trace</div>
+                <div style={{ color: '#10b981', marginBottom: '6px' }}>{'//'} LEI C/SIMD Kernel Execution Trace</div>
                 <div style={{ color: '#8090b0' }}>Ternary_Weight_Space: [-1, 0, +1]</div>
                 <div style={{ color: '#8090b0' }}>Total_Memory_Mapped: <span style={{ color: '#38bdf8' }}>418.4 MB (Active)</span></div>
                 <div style={{ color: '#8090b0' }}>Fused_Sensor_Packet: <span style={{ color: '#D4AF37' }}>LiDAR + SAR + RGB</span></div>

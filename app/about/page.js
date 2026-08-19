@@ -104,7 +104,7 @@ export default function AboutPage() {
               </p>
               <div style={{ padding:'1.5rem', background:'rgba(212,175,55,0.05)', border:'1px solid rgba(212,175,55,0.15)', borderRadius:12, marginBottom: '1.5rem' }}>
                 <p style={{ color:'#D4AF37', fontWeight:600, fontSize:'1.1rem', fontStyle:'italic', margin: 0 }}>
-                  "If nature cannot speak, we will build systems that allow it to be understood more clearly."
+                  &ldquo;If nature cannot speak, we will build systems that allow it to be understood more clearly.&rdquo;
                 </p>
               </div>
               <p style={{ color:'var(--text-secondary)', lineHeight:1.9, marginBottom:'1.5rem', fontSize: '0.98rem' }}>
@@ -232,9 +232,9 @@ export default function AboutPage() {
         <div className="container" style={{ textAlign:'center', maxWidth:700, margin:'0 auto' }}>
           <div className="accent-line" style={{ margin:'0 auto 2rem' }} />
           <p style={{ color:'var(--text-muted)', fontSize:'1.05rem', lineHeight:2, fontStyle:'italic', marginBottom:'2rem' }}>
-            "We do not control the system.
+            &ldquo;We do not control the system.
             <br />We design it.
-            <br />Those who govern must decide how truth is applied."
+            <br />Those who govern must decide how truth is applied.&rdquo;
           </p>
           <Link href="/contact" className="btn-primary" style={{ fontSize:'1rem', padding:'16px 40px' }}>
             🌿 Connect with Librae

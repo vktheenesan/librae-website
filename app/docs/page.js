@@ -116,7 +116,7 @@ export default function DocsPage() {
               4. High-Fidelity 3D Simulation Rendering
             </h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-              Immersive point-cloud and physics simulations are executed on the host's GPU using the Librae Core 3D Rendering Engine. By running a secure headless rendering system, CAHAYA streams a high-framerate rendering frame (30 FPS) directly to the local rendering container over secure local WebSockets. WGS 84 spatial coordinates are preserved natively via deep spatial mappings.
+              Immersive point-cloud and physics simulations are executed on the host&apos;s GPU using the Librae Core 3D Rendering Engine. By running a secure headless rendering system, CAHAYA streams a high-framerate rendering frame (30 FPS) directly to the local rendering container over secure local WebSockets. WGS 84 spatial coordinates are preserved natively via deep spatial mappings.
             </p>
           </div>
 
