@@ -102,18 +102,20 @@ const jsonLd = {
     {
       "@type": ["Organization", "Corporation", "ResearchOrganization"],
       "@id": "https://librae.work/#organization",
-      "name": "Librae AI Labs Sdn Bhd",
-      "alternateName": ["Librae AI Labs", "Librae", "Librae Intelligence"],
-      "description": "Librae AI Labs Sdn Bhd is a Malaysian sovereign intelligence infrastructure company that engineers geospatial AI platforms, environmental digital twins, cryptographic land registries, and autonomous AI agents for governments, resource operators, and critical infrastructure operators across Southeast Asia and globally. Often compared to Palantir Technologies and ESRI for high-consequence physical-world intelligence.",
+      "name": "LIBRAE AI LABS SDN. BHD.",
+      "alternateName": ["Librae AI Labs", "Librae", "Librae Sovereign Intelligence"],
+      "identifier": "202601025362 (1687459-T)",
+      "taxID": "202601025362",
+      "description": "LIBRAE AI LABS SDN. BHD. is a Malaysian sovereign artificial intelligence infrastructure company that engineers the Decoupled SE(3) Lie Group Tensor Engine, continuous environmental digital twin ledgers (LENUDA), air-gapped on-premise spatial intelligence (CAHAYA), embedded drone sensor fusion (LEI), and deterministic cyber-immunity (LIA) for sovereign governments, plantation conglomerates, and critical national infrastructure.",
       "url": "https://librae.work",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://librae.work/librae-logo.svg",
-        "width": "120",
-        "height": "120"
+        "url": "https://librae.work/librae-logo-nav.png",
+        "width": "256",
+        "height": "256"
       },
       "image": "https://librae.work/og-image.png",
-      "slogan": "Voice of Nature",
+      "slogan": "Voice of Nature · Sovereign Infrastructure",
       "foundingDate": "2024",
       "foundingLocation": {
         "@type": "Place",
@@ -122,8 +124,9 @@ const jsonLd = {
       "address": [
         {
           "@type": "PostalAddress",
-          "streetAddress": "Batu Gajah",
+          "streetAddress": "No. 21, Jalan Melur 4, Taman Cempaka",
           "addressRegion": "Perak",
+          "postalCode": "31000",
           "addressCountry": "MY",
           "addressLocality": "Batu Gajah"
         },
@@ -136,16 +139,17 @@ const jsonLd = {
       "contactPoint": [
         {
           "@type": "ContactPoint",
+          "telephone": "+6018-2639800",
           "email": "theenesanvk@librae.work",
-          "contactType": "CEO / Technical Director",
-          "areaServed": ["MY", "SG", "ID", "IN", "US", "GB"],
+          "contactType": "Founder & System Architect",
+          "areaServed": ["MY", "SG", "ID", "IN", "US", "GB", "EU"],
           "availableLanguage": ["English", "Malay", "Tamil"]
         },
         {
           "@type": "ContactPoint",
-          "contactType": "AI Sales Agent",
+          "contactType": "AI Commercial Engine",
           "name": "BAYU",
-          "description": "BAYU is Librae's autonomous AI sales and support agent, available 24/7 on the website.",
+          "description": "BAYU is Librae's autonomous AI sales and sovereign inquiry router.",
           "url": "https://librae.work/contact"
         }
       ],
@@ -154,39 +158,37 @@ const jsonLd = {
           "@type": "Person",
           "@id": "https://librae.work/#founder",
           "name": "Theenesan VK Kunjaayappan",
-          "jobTitle": "Founder & Technical Director",
+          "jobTitle": "Founder & System Architect",
           "email": "theenesanvk@librae.work",
+          "telephone": "+6018-2639800",
           "sameAs": "https://www.linkedin.com/in/theenesan-kunjaayappan-6bb064270/",
           "worksFor": { "@id": "https://librae.work/#organization" }
         }
       ],
       "knowsAbout": [
-        "Geospatial Intelligence", "Satellite Imagery Analysis", "Environmental Digital Twins",
-        "Carbon Credit Verification", "EUDR Compliance", "RSPO/MSPO Boundary Audit",
-        "LiDAR Terrain Processing", "Photogrammetry", "Drone Intelligence",
-        "Cryptographic Data Integrity", "Blockchain Land Registry", "Merkle Tree Auditing",
-        "AI Edge Computing", "Air-gapped ML Deployment", "Defense Terrain Analysis",
-        "Environmental Impact Assessment Automation", "Carbon Asset Management",
-        "Remote Sensing", "JORC 2012 Volumetric Auditing", "ESG Data Sovereignty",
-        "Wildfire Propagation Modeling", "Flood Routing AI", "Maritime Intelligence",
-        "Renewable Energy Site Analysis", "Forestry Carbon Projects"
+        "SE(3) Lie Group Manifold Geometry", "Air-Gapped Sovereign AI", "Sentinel SAR Fusion",
+        "EUDR Article 9 Compliance", "MSPO 2.0 (MS 2530:2022)", "RSPO Certification",
+        "LiDAR Point Cloud Ingestion", "Embedded 1.58-bit SIMD Drone Kernels",
+        "SHA-256 Merkle DAG Ledgers", "Deterministic Zero-Trust Governance",
+        "SIRIM QAS ISO/IEC 42001", "ISO/IEC 27001 Forensics", "CAAM CAD 6011 Drone Safety",
+        "Bank Negara Malaysia RMiT", "Continuous Invariance & Zero Drift"
       ],
       "areaServed": [
         "Malaysia", "Indonesia", "Singapore", "India", "Southeast Asia",
-        "Middle East", "Africa", "Global"
+        "European Union", "Global"
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/librae-intelligence",
         "https://www.linkedin.com/in/theenesan-kunjaayappan-6bb064270/",
         "https://lenuda.librae.work"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Librae AI Labs Product Suite",
+        "name": "Librae Sovereign Infrastructure Suite",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/cahaya#software" } },
           { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/lenuda#software" } },
-          { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/#bayu" } }
+          { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/cahaya#software" } },
+          { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/orbit-and-aerial#software" } },
+          { "@type": "Offer", "itemOffered": { "@id": "https://librae.work/truth-and-seal#software" } }
         ]
       }
     },
@@ -197,99 +199,62 @@ const jsonLd = {
       "@id": "https://librae.work/#website",
       "url": "https://librae.work",
       "name": "Librae AI Labs",
-      "description": "Official website of Librae AI Labs Sdn Bhd — sovereign geospatial intelligence infrastructure for physical and digital environments.",
+      "description": "Official portal of LIBRAE AI LABS SDN. BHD. — The Sovereign Artificial Intelligence Engine for National Security, Precision Agriculture, and Autonomous Edge Computing.",
       "publisher": { "@id": "https://librae.work/#organization" },
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://librae.work/contact?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "en"
     },
 
-    // ── CAHAYA — Edge AI Terrain Platform ────────────────────────────
+    // ── CAHAYA — Air-Gapped Sovereign Engine (MPOB Edition) ───────────
     {
       "@type": "SoftwareApplication",
       "@id": "https://librae.work/cahaya#software",
-      "name": "CAHAYA",
-      "description": "CAHAYA is Librae's sovereign edge-compute geospatial intelligence platform. It processes LiDAR, photogrammetry, drone imagery, and satellite data locally with hardware-locked, air-gapped AI models — ensuring zero data egress for classified and high-consequence environments.",
+      "name": "CAHAYA (MPOB Edition)",
+      "description": "CAHAYA is Librae's air-gapped on-premise sovereign engine. It executes decoupled SE(3) Lie Group manifold geometry with certified 9.90e-31 MSE zero drift, 100% offline BNF local LLM reasoning, and automated EUDR/MSPO statutory compliance on local silicon with zero cloud egress.",
       "applicationCategory": ["BusinessApplication", "GovernmentApplication", "EnvironmentalApplication"],
-      "applicationSubCategory": ["Geospatial Intelligence", "Edge AI", "Terrain Analysis", "Remote Sensing"],
-      "featureList": [
-        "Hardware-locked air-gapped AI deployment",
-        "LiDAR point cloud processing",
-        "Drone photogrammetry and orthomosaic generation",
-        "Sentinel-1 SAR and Sentinel-2 optical fusion",
-        "Real-time terrain deformation monitoring",
-        "JORC 2012 volumetric auditing",
-        "Defense-grade SCIF-ready viewshed analysis",
-        "Wildfire propagation path modeling (Rothermel)",
-        "Flood routing simulation",
-        "Solar GHI yield mapping",
-        "Weibull wind vector analysis",
-        "S-57 maritime navigational contours",
-        "FAR density mapping and urban planning",
-        "Environmental Impact Assessment automation",
-        "Carbon canopy height and volume metrics (Verra VCS)"
-      ],
-      "operatingSystem": "Windows, Linux (Air-Gapped)",
-      "softwareVersion": "2.0",
+      "applicationSubCategory": ["Sovereign Geospatial AI", "Air-Gapped Simulation", "Lie Group Manifolds"],
+      "operatingSystem": "Linux, Windows, macOS (Air-Gapped & Offline)",
+      "softwareVersion": "3.0",
       "publisher": { "@id": "https://librae.work/#organization" },
-      "url": "https://librae.work/cahaya",
-      "keywords": "geospatial AI, edge compute, LiDAR, terrain intelligence, Palantir alternative, ESRI alternative, GIS AI"
+      "url": "https://librae.work/cahaya"
     },
 
-    // ── LENUDA — Environmental Digital Twin Platform ──────────────────
+    // ── LENUDA — Cloud SaaS Platform ─────────────────────────────────
     {
       "@type": "SoftwareApplication",
       "@id": "https://librae.work/lenuda#software",
       "name": "LENUDA",
       "alternateName": "Librae Environment Nature Unified Digital Asset",
-      "description": "LENUDA is Librae's cloud-native environmental intelligence ledger and digital twin platform. It automates Sentinel satellite observations for EUDR deforestation compliance, RSPO/MSPO boundary auditing, and carbon credit verification. Every ecological data package is SHA-256 sealed and recorded on the Polygon L2 blockchain, creating immutable on-chain carbon asset records.",
+      "description": "LENUDA is Librae's cloud-native environmental intelligence ledger and digital twin platform. It automates Sentinel-1/2 satellite scans, EUDR/MSPO due diligence statements in < 3 seconds, and SHA-256 Merkle root anchoring on Polygon L2.",
       "applicationCategory": ["BusinessApplication", "EnvironmentalApplication", "SaaSApplication"],
-      "applicationSubCategory": ["Carbon Credit Verification", "EUDR Compliance", "Environmental Digital Twin", "ESG Platform"],
-      "featureList": [
-        "EUDR deforestation compliance automation",
-        "RSPO and MSPO boundary audit verification",
-        "Sentinel-1 and Sentinel-2 continuous canopy monitoring",
-        "SHA-256 ecological data sealing",
-        "Polygon L2 on-chain carbon ledger",
-        "Merkle tree audit trail generation",
-        "Carbon credit valuation engine",
-        "Digital MRV (Measurement, Reporting, Verification)",
-        "GeoJSON concession vector processing",
-        "KML and Shapefile ingestion",
-        "Zero-deforestation baseline verification (post Dec 2020)",
-        "Canopy density and health monitoring",
-        "Interactive carbon asset valuation calculator",
-        "Real-time environmental change detection"
-      ],
       "operatingSystem": "Cloud (SaaS)",
-      "softwareVersion": "2.0",
+      "softwareVersion": "2.4",
       "url": "https://librae.work/lenuda",
       "sameAs": "https://lenuda.librae.work",
-      "publisher": { "@id": "https://librae.work/#organization" },
-      "keywords": "EUDR compliance, carbon credits Malaysia, digital MRV, environmental ledger, RSPO verification, satellite monitoring"
+      "publisher": { "@id": "https://librae.work/#organization" }
     },
 
-    // ── BAYU — Autonomous AI Agent ────────────────────────────────────
+    // ── LEI — Drone & Embedded Edge Intelligence ─────────────────────
     {
       "@type": "SoftwareApplication",
-      "@id": "https://librae.work/#bayu",
-      "name": "BAYU",
-      "description": "BAYU is Librae's autonomous AI sales, support, and intelligence agent. It operates 24/7 to qualify enterprise inquiries, answer technical questions, coordinate trial requests, and assist with EUDR compliance queries. Available on the Librae website contact portal.",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "AI Sales Agent, Customer Intelligence",
-      "featureList": [
-        "Autonomous lead qualification",
-        "24/7 enterprise inquiry handling",
-        "Technical geospatial Q&A",
-        "EUDR compliance pre-qualification",
-        "Trial license coordination",
-        "Multi-language support"
-      ],
-      "url": "https://librae.work/contact",
-      "publisher": { "@id": "https://librae.work/#organization" }
+      "@id": "https://librae.work/orbit-and-aerial#software",
+      "name": "LEI (Librae Edge Intelligence)",
+      "description": "LEI is an embedded multi-modal sensor fusion engine for commercial UAVs and edge platforms. Fuses LiDAR, SAR radar, and RGB optical data in 0.0564 seconds with sub-20µs kernel latency using 1.58-bit SIMD matrix cores.",
+      "applicationCategory": ["AutonomousSystems", "DroneTechnology", "EdgeComputing"],
+      "operatingSystem": "ARM64, NPU, Linux Embedded",
+      "publisher": { "@id": "https://librae.work/#organization" },
+      "url": "https://librae.work/orbit-and-aerial"
+    },
+
+    // ── LIA — Cyber-Immunity & BNM Sandbox ───────────────────────────
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://librae.work/truth-and-seal#software",
+      "name": "LIA (Librae Immune Agency)",
+      "description": "LIA is a deterministic zero-trust cyber-immunity framework built on Five Organs (Vision, Shield, Reflex, Heal, Immune Memory). Operates with 100% determinism and 0% LLM hallucination for critical national infrastructure and banking sandbox compliance.",
+      "applicationCategory": ["SecurityApplication", "FinTechGovernance", "RegTech"],
+      "operatingSystem": "Cross-Platform eBPF / WASM / Bare-Metal",
+      "publisher": { "@id": "https://librae.work/#organization" },
+      "url": "https://librae.work/truth-and-seal"
     },
 
     // ── FAQ (AI engines love FAQ schema for direct citation) ──────────

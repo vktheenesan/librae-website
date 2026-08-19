@@ -24,11 +24,27 @@ export default function AboutPage() {
             🌍 About Librae AI Labs
           </div>
           <h1 className="section-title" style={{ maxWidth:700 }}>
-            From <span className="gold-text">Batu Gajah</span> to the Systems of Earth
+            From <span className="gold-text">Batu Gajah</span> to Sovereign Global Infrastructure
           </h1>
-          <p className="section-subtitle" style={{ maxWidth: 800 }}>
-            Librae AI Labs Sdn Bhd is an elite Malaysian technology company headquartered in Batu Gajah, Perak & Kuala Lumpur, designing sovereign intelligence infrastructure for high-consequence environments.
+          <p className="section-subtitle" style={{ maxWidth: 840, marginBottom: '1.25rem' }}>
+            LIBRAE AI LABS SDN. BHD. is a Malaysian sovereign deep-tech institution headquartered in Batu Gajah, Perak & Kuala Lumpur, engineering zero-drift artificial intelligence and continuous Lie Group infrastructure for high-consequence national environments.
           </p>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 14px',
+            background: 'rgba(212,175,55,0.08)',
+            border: '1px solid rgba(212,175,55,0.25)',
+            borderRadius: '6px',
+            fontFamily: 'Space Mono, monospace',
+            fontSize: '0.75rem',
+            color: '#CBD5E1',
+          }}>
+            <span style={{ color: '#D4AF37', fontWeight: 700 }}>LIBRAE AI LABS SDN. BHD.</span>
+            <span style={{ color: '#64748B' }}>|</span>
+            <span style={{ color: '#94A3B8' }}>Co. Reg. No. 202601025362 (1687459-T)</span>
+          </div>
         </div>
       </section>
 

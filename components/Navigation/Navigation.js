@@ -8,9 +8,12 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/cahaya', label: 'CAHAYA' },
   { href: '/lenuda', label: 'LENUDA' },
-  { href: '/orbit-and-aerial', label: 'Orbit & Aerial' },
-  { href: '/truth-and-seal', label: 'Truth & Seal' },
-  { href: '/docs', label: 'Documentation' },
+  { href: '/orbit-and-aerial', label: 'LEI Drone Tech' },
+  { href: '/truth-and-seal', label: 'LIA Cyber-Immunity' },
+  { href: '/#rd-pipeline', label: '29 Domains' },
+  { href: '/#empirical-proof', label: 'Empirical Proof' },
+  { href: '/#whitepapers', label: 'White Papers' },
+  { href: '/docs', label: 'Docs' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -43,35 +46,35 @@ export default function Navigation() {
         }} />
 
         <div style={{
-          maxWidth: '1280px',
+          maxWidth: '1360px',
           margin: '0 auto',
-          padding: '0 2rem',
+          padding: '0 1.5rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '72px',
+          height: '74px',
         }}>
           {/* Logo + Wordmark */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            {/* SVG Icon */}
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none', flexShrink: 0 }}>
             <div style={{
-              width: '40px',
-              height: '40px',
+              width: '42px',
+              height: '42px',
               borderRadius: '10px',
               overflow: 'hidden',
-              border: '1px solid rgba(212,175,55,0.35)',
-              background: '#000A1A',
+              border: '1px solid rgba(212,175,55,0.4)',
+              background: 'radial-gradient(circle, #001f4d 0%, #000A1A 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               flexShrink: 0,
+              boxShadow: '0 0 15px rgba(212, 175, 55, 0.2)',
             }}>
               <Image
-                src="/librae-logo.svg"
-                alt="Librae AI Labs"
-                width={40}
-                height={40}
-                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                src="/librae-logo-nav.png"
+                alt="LIBRAE AI LABS"
+                width={42}
+                height={42}
+                style={{ objectFit: 'contain', width: '90%', height: '90%' }}
                 priority
               />
             </div>
@@ -88,14 +91,13 @@ export default function Navigation() {
                 letterSpacing: '-0.3px',
               }}>LIBRAE AI LABS</span>
               <span style={{
-                fontSize: '0.6rem',
-                color: '#2E8B57',
+                fontSize: '0.62rem',
+                color: '#10b981',
                 fontFamily: 'Space Mono, monospace',
-                letterSpacing: '1.5px',
+                letterSpacing: '1.2px',
                 textTransform: 'uppercase',
-                fontWeight: 400,
-                opacity: 0.85,
-              }}>Voice of Nature</span>
+                fontWeight: 700,
+              }}>Sovereign Infrastructure</span>
             </div>
           </Link>
 
@@ -103,15 +105,16 @@ export default function Navigation() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '2px', overflowX: 'auto', msOverflowStyle: 'none', scrollbarWidth: 'none' }} className="desktop-nav">
             {navLinks.map(link => (
               <Link key={link.href} href={link.href} style={{
-                padding: '8px 11px',
-                borderRadius: '8px',
+                padding: '6px 9px',
+                borderRadius: '6px',
                 textDecoration: 'none',
-                fontSize: '0.8rem',
+                fontSize: '0.78rem',
                 fontWeight: 600,
-                letterSpacing: '0.3px',
+                letterSpacing: '0.2px',
                 color: pathname === link.href ? '#D4AF37' : '#A0B0CC',
                 background: pathname === link.href ? 'rgba(212,175,55,0.1)' : 'transparent',
                 transition: 'all 0.2s',
+                whiteSpace: 'nowrap',
               }}
                 onMouseEnter={e => { e.target.style.color = '#D4AF37'; e.target.style.background = 'rgba(212,175,55,0.08)'; }}
                 onMouseLeave={e => { if (pathname !== link.href) { e.target.style.color = '#A0B0CC'; e.target.style.background = 'transparent'; } }}

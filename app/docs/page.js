@@ -119,38 +119,66 @@ export default function DocsPage() {
             </p>
           </div>
 
-          {/* Product Documentation Downloads */}
+          {/* Product Documentation & White Papers Downloads */}
           <div style={{ marginTop: '4rem', paddingTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-            <div className="accent-line" style={{ width: '40px', height: '3px', background: '#ffb703', marginBottom: '1.5rem' }} />
+            <div className="accent-line" style={{ width: '40px', height: '3px', background: '#D4AF37', marginBottom: '1.5rem' }} />
             <h2 style={{ fontSize: '1.8rem', color: '#E0E2E5', marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', fontWeight: 800 }}>
-              Product Documentation
+              Technical White Papers & Compliance Dossiers
             </h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Comprehensive technical reference documents for each platform. Download or view online.
+              Download official publication-grade white papers, 16-test empirical benchmark reports, and SIRIM QAS ISO standards compliance dossiers.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-              <a href="/docs/CAHAYA_MASTER.md" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(212,175,55,0.2)', transition: 'border-color 0.2s' }}>
-                <div style={{ fontSize: '2rem' }}>🛰️</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+              <a href="/whitepapers/LIBRAE_CAHAYA_Executive_Summary.pdf" download="LIBRAE_CAHAYA_Executive_Summary.pdf" className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(212,175,55,0.3)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>🌴</div>
                 <div>
-                  <h4 style={{ color: '#D4AF37', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 700 }}>CAHAYA Documentation</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
-                    Desktop workspace architecture, 3-panel layout, 10 industry domains, pricing tiers, system requirements, installation guide, security model.
+                  <h4 style={{ color: '#D4AF37', fontSize: '1.05rem', marginBottom: '0.4rem', fontWeight: 700 }}>CAHAYA Executive White Paper (PDF)</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+                    Decoupled SE(3) Lie Group Tensor Engine, continuous manifold geometry, and MPOB estate optimization.
                   </p>
-                  <span style={{ color: '#ffb703', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block' }}>View CAHAYA_MASTER.md →</span>
+                  <span style={{ color: '#D4AF37', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block', fontWeight: 700 }}>📥 Download Executive White Paper (12 Pages) →</span>
                 </div>
               </a>
 
-              <a href="/docs/LENUDA_MASTER.md" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(46,139,87,0.2)', transition: 'border-color 0.2s' }}>
-                <div style={{ fontSize: '2rem' }}>🌿</div>
+              <a href="/whitepapers/LIBRAE_CAHAYA_Empirical_Benchmark_Report.pdf" download="LIBRAE_CAHAYA_Empirical_Benchmark_Report.pdf" className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(56,189,248,0.3)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>📊</div>
                 <div>
-                  <h4 style={{ color: '#2E8B57', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: 700 }}>LENUDA Documentation</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
-                    Cloud-native environmental ledger, dMRV pipeline, EUDR compliance, satellite monitoring, blockchain attestation, carbon credit verification.
+                  <h4 style={{ color: '#38bdf8', fontSize: '1.05rem', marginBottom: '0.4rem', fontWeight: 700 }}>16-Test Empirical Benchmark Report (PDF)</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+                    Certified mathematical proof of 9.90e-31 MSE zero drift under 64-bit continuous SE(3) transformations.
                   </p>
-                  <span style={{ color: '#22c55e', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block' }}>View LENUDA_MASTER.md →</span>
+                  <span style={{ color: '#38bdf8', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block', fontWeight: 700 }}>📥 Download Benchmark Receipts (PDF) →</span>
                 </div>
               </a>
+
+              <a href="/whitepapers/LIBRAE_LEI_Executive_Technical_Whitepaper.pdf" download="LIBRAE_LEI_Executive_Technical_Whitepaper.pdf" className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(16,185,129,0.3)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>🛸</div>
+                <div>
+                  <h4 style={{ color: '#10b981', fontSize: '1.05rem', marginBottom: '0.4rem', fontWeight: 700 }}>LEI Embedded Drone Intelligence (PDF)</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+                    1.58-bit BitNet SIMD matrix kernel, 0.0564s multi-sensor fusion, and CAAM CAD 6011 aviation compliance.
+                  </p>
+                  <span style={{ color: '#10b981', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block', fontWeight: 700 }}>📥 Download Drone White Paper (PDF) →</span>
+                </div>
+              </a>
+
+              <a href="/whitepapers/LIBRAE_LIA_Executive_Master_White_Paper.pdf" download="LIBRAE_LIA_Executive_Master_White_Paper.pdf" className="glass-card" style={{ padding: '1.75rem', display: 'flex', gap: '1.25rem', alignItems: 'start', textDecoration: 'none', border: '1px solid rgba(168,85,247,0.3)', transition: 'border-color 0.2s' }}>
+                <div style={{ fontSize: '2rem' }}>🛡️</div>
+                <div>
+                  <h4 style={{ color: '#a855f7', fontSize: '1.05rem', marginBottom: '0.4rem', fontWeight: 700 }}>LIA Cyber-Immunity Master Blueprint (PDF)</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+                    Five Organs architecture, zero-trust eBPF telemetry, deterministic BNF firewall, and BNM RMiT readiness.
+                  </p>
+                  <span style={{ color: '#a855f7', fontSize: '0.75rem', marginTop: '8px', display: 'inline-block', fontWeight: 700 }}>📥 Download Cyber Blueprint (PDF) →</span>
+                </div>
+              </a>
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+              <Link href="/#whitepapers" className="btn-secondary" style={{ display: 'inline-flex', padding: '12px 28px' }}>
+                📑 View Complete 11-Paper Institutional Library On Homepage →
+              </Link>
             </div>
           </div>
 

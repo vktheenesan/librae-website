@@ -309,8 +309,21 @@ export default function ContactPage() {
               <div className="accent-line" />
               <h2 className="section-title" style={{ fontSize:'1.8rem' }}>The Librae Footprint</h2>
               <div style={{ display:'flex', flexDirection:'column', gap:'1.5rem' }}>
+                <div className="glass-card" style={{ padding:'1.5rem', display:'flex', gap:'1rem', alignItems:'flex-start', border: '1px solid rgba(212,175,55,0.3)' }}>
+                  <div style={{ fontSize:'2rem' }}>🇲🇾</div>
+                  <div>
+                    <h4 style={{ color:'#D4AF37', fontSize:'0.95rem', marginBottom:'4px', fontWeight: 700 }}>LIBRAE AI LABS SDN. BHD.</h4>
+                    <p style={{ color:'#94A3B8', fontSize:'0.75rem', fontFamily: 'Space Mono, monospace', marginBottom:'4px' }}>Co. Reg. No. 202601025362 (1687459-T)</p>
+                    <p style={{ color:'var(--text-muted)', fontSize:'0.78rem', marginBottom:'6px' }}>No. 21, Jalan Melur 4, Taman Cempaka, 31000 Batu Gajah, Perak & Kuala Lumpur, Malaysia</p>
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '6px' }}>
+                      <a href="tel:+60182639800" style={{ color: '#10b981', fontSize: '0.75rem', fontFamily: 'Space Mono, monospace', textDecoration: 'none' }}>📞 +6018-2639800</a>
+                      <span style={{ color: '#64748B' }}>·</span>
+                      <a href="mailto:theenesanvk@librae.work" style={{ color: '#38bdf8', fontSize: '0.75rem', fontFamily: 'Space Mono, monospace', textDecoration: 'none' }}>✉ theenesanvk@librae.work</a>
+                    </div>
+                  </div>
+                </div>
+
                 {[
-                  { flag:'🇲🇾', entity:'Librae AI Labs Sdn Bhd', loc:'Batu Gajah, Perak & KL', role:'Global HQ · Operations Hub', color:'#D4AF37' },
                   { flag:'🇺🇸', entity:'Librae Inc', loc:'USA Strategic Partnerships', role:'Corporate · Strategic Market Access', color:'#4A9EFF' },
                   { flag:'🇮🇳', entity:'Librae Pvt Ltd', loc:'Punjab & Haryana', role:'Operations · Research & Tech Development', color:'#2E8B57' },
                 ].map((l,i) => (
