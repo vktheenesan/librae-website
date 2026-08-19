@@ -5,13 +5,12 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/cahaya', label: 'CAHAYA' },
   { href: '/lenuda', label: 'LENUDA' },
-  { href: '/orbit-and-aerial', label: 'LEI Drone Tech' },
-  { href: '/truth-and-seal', label: 'LIA Cyber-Immunity' },
+  { href: '/lei', label: 'LEI (Data Engine)' },
+  { href: '/lia', label: 'LIA (Cybersecurity)' },
   { href: '/#rd-pipeline', label: '29 Domains' },
-  { href: '/#empirical-proof', label: 'Empirical Proof' },
+  { href: '/#empirical-proof', label: 'Receipts' },
   { href: '/#whitepapers', label: 'White Papers' },
   { href: '/docs', label: 'Docs' },
   { href: '/about', label: 'About' },

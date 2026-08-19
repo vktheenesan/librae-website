@@ -42,36 +42,36 @@ export default function ProductEcosystem() {
     },
     {
       id: 'lei',
-      name: 'LEI (Librae Edge Intelligence)',
-      badge: 'EMBEDDED DRONE & AERIAL SENSOR FUSION',
-      subtitle: 'Sub-20µs Multi-Sensor Fusion on ARM64 / NPU Hardware',
+      name: 'LEI (Data Factory Engine)',
+      badge: 'DATA FACTORY ENGINE · TERNARY 400MB+ RAM',
+      subtitle: '1.58-Bit Ternary Edge AI for Drones, Robotics & Silicon',
       icon: '🛸',
       color: '#10b981',
-      description: 'High-frequency embedded sensory intelligence for commercial drones, aerial surveying, and robotics. Fuses LiDAR, SAR radar, and RGB optical telemetry in 0.0564 seconds using 1.58-bit BitNet SIMD kernels.',
+      description: 'The high-throughput Data Factory Engine for edge devices, drones, and autonomous robotics. Replaces binary float matrix multipliers with 1.58-bit ternary {-1, 0, +1} SIMD operations, running full sovereign AI in only ~400MB+ RAM with 0.0564s multi-sensor fusion (LiDAR, SAR, RGB).',
       keyFeatures: [
-        '0.0564s simultaneous LiDAR + SAR + Optical multi-modal fusion',
-        'Sub-20µs kernel latency with 1.58-bit SIMD matrix acceleration',
-        'Deterministic SE(3) 6-DoF pose estimation with zero inertial drift',
-        'Fully compliant with CAAM CAD 6011 and ISO 21384-3 UAS standards'
+        'Only ~400MB+ RAM footprint (Runs full sovereign AI on micro-controllers & edge companion boards)',
+        '1.58-bit ternary BitNet {-1, 0, +1} replaces power-hungry binary float matrix multiplication',
+        '0.0564s simultaneous LiDAR + SAR + RGB multi-modal fusion with sub-20µs kernel latency',
+        'Deterministic SE(3) continuous Lie Group geometry with zero coordinate drift (9.90e-31 MSE)'
       ],
-      primaryCTA: { label: 'Explore Drone Tech →', href: '/orbit-and-aerial', external: false },
+      primaryCTA: { label: 'Explore Data Factory Engine (LEI) →', href: '/lei', external: false },
       secondaryCTA: { label: 'Download LEI Benchmark Report', href: '/whitepapers/LIBRAE_LEI_Empirical_Benchmarks_Report.pdf', external: true }
     },
     {
       id: 'lia',
-      name: 'LIA (Librae Immune Agency)',
-      badge: 'BNM SANDBOX READY · CYBER-IMMUNITY',
-      subtitle: 'Deterministic Zero-Trust Governance & Reflex Infrastructure',
+      name: 'LIA (Cybersecurity Future)',
+      badge: 'CYBERSECURITY FUTURE · BNM SANDBOX READY',
+      subtitle: 'Deterministic Cyber-Immunity for Banks, Machines & AI Agents',
       icon: '🛡️',
       color: '#a855f7',
-      description: 'A deterministic, small-core cyber-immunity framework built on Five Organs (Vision, Shield, Reflex, Heal, Immune Memory). Operates with 100% determinism and zero LLM hallucination for critical infrastructure defense.',
+      description: 'The future of cybersecurity for the AI agent era. Protects banks, financial institutions, critical infrastructure, and autonomous machines from prompt injections, formula hallucinations, and rogue tool calls with mathematical 100% determinism.',
       keyFeatures: [
-        'Five-Organ self-healing architecture with sub-millisecond reflex action',
-        'Zero-Trust eBPF telemetry + WASM isolated policy enforcement',
-        'Deterministic Pydantic V2 BNF grammar firewall (0% hallucination)',
-        'Aligned with Bank Negara Malaysia RMiT & Cyber Security Act 2024'
+        'Purpose-built for banks (BNM Sandbox & RMiT ready) and machines with autonomous execution permissions',
+        'Five-Organ biological architecture (Vision, Shield, Reflex, Heal, Immune Memory)',
+        'Deterministic BNF grammar firewall guaranteeing 100% output determinism & 0% hallucination',
+        'Append-only SHA-256 Merkle DAG state rollback and unassailable statutory audit receipts'
       ],
-      primaryCTA: { label: 'Inspect Cyber Governance →', href: '/truth-and-seal', external: false },
+      primaryCTA: { label: 'Explore Cybersecurity Future (LIA) →', href: '/lia', external: false },
       secondaryCTA: { label: 'Download LIA Blueprint (PDF)', href: '/whitepapers/LIBRAE_LIA_Executive_Master_White_Paper.pdf', external: true }
     }
   ];

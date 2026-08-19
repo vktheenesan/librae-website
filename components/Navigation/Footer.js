@@ -91,9 +91,9 @@ export default function Footer() {
             <h5 style={{ color: '#D4AF37', marginBottom: '1rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1.5px', fontFamily: 'Space Mono, monospace' }}>Sovereign Engines</h5>
             {[
               { href: '/cahaya', label: 'CAHAYA (MPOB Edition)' },
-              { href: '/lenuda', label: 'LENUDA (Cloud SaaS)' },
-              { href: '/orbit-and-aerial', label: 'LEI (Drone Intelligence)' },
-              { href: '/truth-and-seal', label: 'LIA (Cyber-Immunity)' },
+              { href: '/lenuda', label: 'LENUDA (Cloud Twin)' },
+              { href: '/lei', label: 'LEI (Drone Intelligence)' },
+              { href: '/lia', label: 'LIA (Cyber-Immunity)' },
               { href: '/#rd-pipeline', label: '29 Sovereign Domains' },
             ].map(l => (
               <Link key={l.href} href={l.href} style={{
