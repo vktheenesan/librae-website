@@ -14,23 +14,32 @@ export async function POST(request) {
       return NextResponse.json({ error: 'AI engine not configured' }, { status: 500 });
     }
 
-    const supabase = getSupabaseAdmin();
+    let supabase = null;
+    try {
+      supabase = getSupabaseAdmin();
+    } catch {
+      // Supabase is optional for chat operation
+    }
     const chatSource = source || 'website';
 
     // ── Load or create chat session ──
     let sessionData = null;
     let conversationHistory = [];
 
-    if (session_id) {
-      const { data } = await supabase
-        .from('chat_sessions')
-        .select('*')
-        .eq('id', session_id)
-        .single();
+    if (session_id && supabase) {
+      try {
+        const { data } = await supabase
+          .from('chat_sessions')
+          .select('*')
+          .eq('id', session_id)
+          .single();
 
-      if (data) {
-        sessionData = data;
-        conversationHistory = data.messages || [];
+        if (data) {
+          sessionData = data;
+          conversationHistory = data.messages || [];
+        }
+      } catch (e) {
+        console.warn('Could not retrieve chat session:', e.message);
       }
     }
 
@@ -179,40 +188,41 @@ When you introduce yourself, always say: "I am BAYU — Librae AI Labs' autonomo
 
     let returnSessionId = session_id;
 
-    try {
-      if (sessionData) {
-        // Update existing session
-        await supabase
-          .from('chat_sessions')
-          .update({
-            messages: newMessages,
-            message_count: newMessages.length,
-            last_message_at: new Date().toISOString(),
-          })
-          .eq('id', sessionData.id);
-      } else {
-        // Create new session
-        const { data: newSession } = await supabase
-          .from('chat_sessions')
-          .insert({
-            source: chatSource,
-            user_identifier: null,
-            messages: newMessages,
-            message_count: newMessages.length,
-            first_message_at: new Date().toISOString(),
-            last_message_at: new Date().toISOString(),
-            metadata: { first_user_message: message },
-          })
-          .select('id')
-          .single();
+    if (supabase) {
+      try {
+        if (sessionData) {
+          // Update existing session
+          await supabase
+            .from('chat_sessions')
+            .update({
+              messages: newMessages,
+              message_count: newMessages.length,
+              last_message_at: new Date().toISOString(),
+            })
+            .eq('id', sessionData.id);
+        } else {
+          // Create new session
+          const { data: newSession } = await supabase
+            .from('chat_sessions')
+            .insert({
+              source: chatSource,
+              user_identifier: null,
+              messages: newMessages,
+              message_count: newMessages.length,
+              first_message_at: new Date().toISOString(),
+              last_message_at: new Date().toISOString(),
+              metadata: { first_user_message: message },
+            })
+            .select('id')
+            .single();
 
-        if (newSession) {
-          returnSessionId = newSession.id;
+          if (newSession) {
+            returnSessionId = newSession.id;
+          }
         }
+      } catch (dbErr) {
+        console.warn('Failed to persist chat session:', dbErr.message);
       }
-    } catch (dbErr) {
-      // Non-blocking — chat still works even if DB persistence fails
-      console.warn('Failed to persist chat session:', dbErr);
     }
 
     return NextResponse.json({

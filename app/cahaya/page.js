@@ -65,25 +65,8 @@ export default function CahayaPage() {
     document.body.removeChild(link);
   };
 
-  const handleCheckout = async (tier) => {
-    setCheckoutLoading(tier);
-    try {
-      const res = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tier }),
-      });
-      const data = await res.json();
-      if (data.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        alert(data.error || 'Payment system unavailable. Contact theenesanvk@librae.work');
-      }
-    } catch {
-      alert('Payment system offline. Contact theenesanvk@librae.work directly.');
-    } finally {
-      setCheckoutLoading(null);
-    }
+  const handleCheckout = (tier) => {
+    window.location.href = `/contact?tier=${encodeURIComponent(tier)}`;
   };
 
   const domains = [
